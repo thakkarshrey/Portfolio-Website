@@ -1,0 +1,10 @@
+/* COMMON CLASSES FOR SECTION */
+.section {
+  padding: 10rem 0;
+  background-color: var(--color-light);
+  transition: var(--transition);
+}
+
+.section:nth-child(even) {
+  background-color: var(--color-white);
+}

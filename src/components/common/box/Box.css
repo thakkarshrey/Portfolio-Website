@@ -1,0 +1,5 @@
+.box-container {
+  width: var(--container-width-lg);
+  max-width: var(--primary-container-max-width);
+  margin-inline: auto;
+}
