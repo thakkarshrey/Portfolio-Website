@@ -7,7 +7,7 @@
   display: inline-block;
   gap: 1rem;
   background-color: var(--light-color);
-  color: var(--black-color);
+  color: var(--primary-color);
   padding: 0.6rem 2.5rem;
   border: 2px solid transparent;
   cursor: pointer;

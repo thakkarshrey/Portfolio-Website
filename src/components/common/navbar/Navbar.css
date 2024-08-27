@@ -10,7 +10,7 @@
   left: 0;
   z-index: 9;
   transition: var(--transition);
-  box-shadow: 0 1rem 1.5rem hsla(var(--primary-hue), 68%, 42%, 20%);
+  /* box-shadow: 0 1rem 1.5rem hsla(var(--primary-hue), 68%, 42%, 20%); */
 }
 
 .navbar__container {
@@ -100,4 +100,11 @@
   color: var(--primary-color);
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+/* HIDING NAVBAR ON TABLETS AND PHONES */
+@media screen and (max-width: 1024px) {
+  .navbar__menu {
+    display: none;
+  }
 }

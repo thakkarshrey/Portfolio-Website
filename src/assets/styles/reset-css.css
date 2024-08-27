@@ -13,7 +13,7 @@ html {
 
 /* ANCHOR TAG DEFAULT STYLES */
 a {
-  color: var(--white-color);
+  /* color: var(--white-color); */
   transition: var(--transition);
 }
 

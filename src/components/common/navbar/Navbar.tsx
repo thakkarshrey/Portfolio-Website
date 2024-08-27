@@ -2,16 +2,13 @@ import { AppAssetsConfig } from "../../../assets/config/AppAssetsConfig";
 import Box from "../box";
 import { navbarUtils } from "./Data";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Navbar.css";
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
+import "./Navbar.css";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const Icon = () => {
-    return <>$</>;
-  };
   const [isNavbarClicked, setIsNavbarClicked] = useState(false);
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
   const indicatorRef: any = useRef(null);
