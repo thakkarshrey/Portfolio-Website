@@ -9,13 +9,13 @@ type Props = {};
 
 const App = (props: Props) => {
   return (
-    <Box>
+    <>
       <Navbar />
       <Header />
       <About />
       <Portfolio />
       <Contact />
-    </Box>
+    </>
   );
 };
 

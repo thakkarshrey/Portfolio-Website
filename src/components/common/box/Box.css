@@ -3,3 +3,9 @@
   max-width: var(--primary-container-max-width);
   margin-inline: auto;
 }
+
+@media screen and (max-width: 1024px) {
+  .box-container {
+    width: var(--container-width-md);
+  }
+}

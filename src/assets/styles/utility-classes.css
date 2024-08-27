@@ -1,4 +1,4 @@
-/* COMMON CLASSES FOR SECTION */
+/* SECTION UTILITY CLASSES */
 .section {
   padding: 10rem 0;
   background-color: var(--color-light);
@@ -7,4 +7,25 @@
 
 .section:nth-child(even) {
   background-color: var(--color-white);
+}
+
+.section > h2 {
+  text-align: center;
+}
+
+.section > p {
+  text-align: center;
+  margin: 0.5rem auto 4rem;
+  width: 40%;
+}
+
+@media screen and (max-width: 1024px) {
+  .section {
+    padding: 8rem 0;
+  }
+
+  .section > p {
+    width: var(--container-width-md);
+    margin-bottom: 3rem;
+  }
 }

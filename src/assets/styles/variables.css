@@ -4,11 +4,11 @@
   --dark-lightness: 44%;
   --light-lightness: 94%;
   --white-lightness: 100%;
-  --color-primary: hsl(var(--primary-hue), 89%, 41%);
-  --color-white: hsl(0, 5%, var(--white-lightness));
-  --color-light: hsl(var(--primary-hue), 5%, var(--light-lightness));
-  --color-black: hsl(var(--primary-hue), 5%, var(--black-lightness));
-  --color-dark: hsl(var(--primary-hue), 5%, var(--dark-lightness));
+  --primary-color: hsl(var(--primary-hue), 89%, 41%);
+  --white-color: hsl(0, 5%, var(--white-lightness));
+  --light-color: hsl(var(--primary-hue), 5%, var(--light-lightness));
+  --black-color: hsl(var(--primary-hue), 5%, var(--black-lightness));
+  --dark-color: hsl(var(--primary-hue), 5%, var(--dark-lightness));
 
   /* CONTAINER VARIABLES */
   --container-width-lg: 76%;
