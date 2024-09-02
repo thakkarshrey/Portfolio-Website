@@ -1,68 +1,162 @@
-.header {
-  margin: 8rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--white-color);
-  transition: var(--transition);
-}
-
 .header__container {
   display: flex;
-  flex-direction: column;
+  gap: 3rem;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
+/* Header profile photo */
 .header__profile {
   width: 18rem;
-  border-radius: 9rem 9rem 2rem 2rem;
-  overflow: hidden;
+  height: 18rem;
+  background-image: url(/public/assets/images/Shrey_Profile.jpg);
+  background-position: center center;
+  background-size: cover;
   margin-bottom: 1.5rem;
+  transition: all 1s;
+  animation: animate-header-image 5s ease-in-out infinite;
+  transform: translateX(100%);
+  opacity: 0;
 }
 
-.header__container p {
+#header.show-animation .header__profile {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+@keyframes animate-header-image {
+  0%,
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 40%;
+  }
+}
+/* Header profile photo */
+
+/* Header content and typewriter effect */
+.header__content {
   width: 35rem;
-  text-align: center;
-  margin: 0.6rem 0 2rem;
+  transition: var(--transition);
 }
 
+.header__content h3 {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: 1s;
+}
+#header.show-animation .header__content h3 {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+#header__typrwriter {
+  color: var(--primary-color);
+}
+
+#header__cursor {
+  color: var(--primary-color);
+  animation: blink-cursor 1s linear infinite;
+}
+
+@keyframes blink-cursor {
+  0% {
+    opacity: 100%;
+  }
+
+  50% {
+    opacity: 0%;
+  }
+}
+/* Header content and typewriter effect */
+
+/* Navigation buttons */
 .header__navigation-buttons {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin: 1.5rem 0;
+}
+.header__navigation-buttons a:nth-child(1) {
+  z-index: 9;
+}
+.header__navigation-buttons a {
+  transform: translateX(-100%);
+  transition-delay: calc(0.3s * var(--navigation-buttons-i));
+  opacity: 0;
 }
 
-.header__social-media-links {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+#header.show-animation .header__navigation-buttons a {
+  transform: translateX(0);
+  opacity: 1;
 }
+/* Navigation buttons */
 
-.header__social-media-links a {
-  color: var(--black-color);
-  width: 1.8rem;
-  aspect-ratio: 1/1;
-  background-color: var(--light-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-3);
-  font-size: 16px;
+/* Social media buttons */
+.header__social-media-button {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  background: var(--white-color);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   cursor: pointer;
+  margin: 0 5px;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out,
+    transform calc(0.7s * var(--social-media-buttons-i)) ease-in-out,
+    opacity 0.3s ease-in-out;
+  transform: translateX(100px);
+  opacity: 0;
 }
 
-.header__social-media-links a:hover {
-  background-color: var(--primary-color);
+#header.show-animation .header__social-media-button {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.header__social-media-button span {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-left: 10px;
+  user-select: none;
+}
+
+.header__social-media-button:hover {
+  width: 150px;
+}
+
+.header__social-media-button:nth-child(1):hover .header__social-media-icon {
+  background: var(--linkdin-color-code);
   color: var(--white-color);
-  transform: translateX(-0.5rem);
 }
 
+.header__social-media-button:nth-child(2):hover .header__social-media-icon {
+  background: var(--github-color-code);
+  color: var(--white-color);
+}
+
+.header__social-media-button:nth-child(3):hover .header__social-media-icon {
+  background: var(--instagram-gradient-color-code);
+  color: var(--white-color);
+}
+
+.header__social-media-icon {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 40px;
+  color: var(--black-color);
+}
+/* Social media buttons */
+
+/* MEDIA QUERIES */
 @media screen and (max-width: 1024px) {
   .header {
     margin: 5rem 0;
@@ -81,3 +175,4 @@
     display: none;
   }
 }
+/* MEDIA QUERIES */

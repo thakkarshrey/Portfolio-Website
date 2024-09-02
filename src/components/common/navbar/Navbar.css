@@ -3,14 +3,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 5rem;
-  background-color: var(--white-color);
+  height: 4.5rem;
+  background-color: transparent;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9;
   transition: var(--transition);
-  /* box-shadow: 0 1rem 1.5rem hsla(var(--primary-hue), 68%, 42%, 20%); */
+  background-color: var(--light-color);
+}
+
+.navbar--sticky {
+  background-color: var(--white-color);
 }
 
 .navbar__container {
@@ -19,12 +23,13 @@
   align-items: center;
 }
 
-.navbar__logo {
-  width: 2.5rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--primary-color);
+.navbar__name {
+  font-family: "Bangers", system-ui;
+  color: var(--primary-color);
+  font-style: normal;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .navbar__menu {
@@ -34,7 +39,7 @@
 }
 
 .navbar__list-item > a {
-  height: 3rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,28 +47,30 @@
   z-index: 9;
   color: var(--primary-color);
   position: relative;
+  font-weight: 500;
 }
 
 .navbar__indicator {
   position: absolute;
-  height: 50px;
+  height: 2.5rem;
   background-color: var(--primary-color);
   z-index: 1;
   width: 93px;
   transition: 0.5s;
+  border-radius: 2rem;
 }
 
-.navbar__indicator::before {
+/* .navbar__indicator::before {
   content: "";
   position: absolute;
   width: 25px;
   height: 10px;
   border-radius: 15px;
-  left: -20px;
   background-color: var(--primary-color);
+  transition: 0.5s;
+  left: -20px;
   box-shadow: 10px 20px var(--primary-color), 0px 10px var(--white-color),
     5px 40px var(--primary-color), 5px 30px var(--white-color);
-  transition: 0.5s;
 }
 
 .navbar--indicator-effect::before {
@@ -78,18 +85,18 @@
   width: 25px;
   height: 10px;
   border-radius: 15px;
-  right: -20px;
   background-color: var(--primary-color);
+  transition: 0.5s;
+  right: -20px;
   box-shadow: 0px 20px var(--primary-color), 0px 10px var(--white-color),
     -10px 40px var(--primary-color), -5px 30px var(--white-color);
-  transition: 0.5s;
 }
 
 .navbar--indicator-effect::after {
   right: -10px;
   box-shadow: 5px 20px var(--primary-color), 0px 10px var(--white-color),
     10px 40px var(--primary-color), 5px 30px var(--white-color);
-}
+} */
 
 .navbar--active-tab > a {
   color: var(--white-color);

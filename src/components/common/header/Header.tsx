@@ -1,82 +1,103 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faDribbble,
   faGithub,
   faInstagram,
-  faTwitter,
+  faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import { AppAssetsConfig } from "../../../assets/config/AppAssetsConfig";
 import Box from "../box";
 import Button from "../button";
+import useTypewriterEffect from "../../../hooks/useTypewriterEffect";
 import "./Header.css";
 
 type Props = {};
 
 const Header = (props: Props) => {
+  /* typewriter effect dependencies */
+  const words = ["Frontend Developer.", "Software Engineer.", "Web Developer."];
+
+  const typeWriter = useTypewriterEffect(words);
+  /* typewriter effect dependencies */
+
+  /* social media links array */
   const socialMediaLinksData = [
     {
       id: 1,
-      link: "https://instagram.com",
-      icon: <FontAwesomeIcon icon={faInstagram} />,
+      link: "https://linkdn.com",
+      icon: <FontAwesomeIcon icon={faLinkedin} />,
+      label: "Linkdin",
     },
     {
       id: 2,
-      link: "https://twitter.com",
-      icon: <FontAwesomeIcon icon={faTwitter} />,
+      link: "https://github.com",
+      icon: <FontAwesomeIcon icon={faGithub} />,
+      label: "Github",
     },
     {
       id: 3,
-      link: "https://dribble.com",
-      icon: <FontAwesomeIcon icon={faDribbble} />,
-    },
-    {
-      id: 4,
-      link: "https://github.com",
-      icon: <FontAwesomeIcon icon={faGithub} />,
+      link: "https://instagram.com",
+      icon: <FontAwesomeIcon icon={faInstagram} />,
+      label: "Instagram",
     },
   ];
+  /* social media links array */
+
   return (
-    <div className="header">
+    <section id="header" className="section">
       <Box>
         <div className="header__container">
-          <div className="header__profile">
-            <img src={AppAssetsConfig.PROFILE_PHOTO} alt="Shrey_Thakkar" />
-          </div>
-          <h3>Shrey Thakkar</h3>
-          <p>
-            You are a click away from building your dream website or web app.
-            Send me the details of your project for a modern, mobile responsive,
-            highly performant website today!
-          </p>
+          <div className="header__content">
+            <h3>
+              Hey, I'm Shrey 👋 <br />I am a passionate{" "}
+              <span id="header__typrwriter">{typeWriter}</span>
+              <span id="header__cursor">|</span>
+            </h3>
 
-          <div className="header__navigation-buttons">
-            <a href="#contact">
-              <Button variant="primary">Let's Talk</Button>
-            </a>
+            <div className="header__navigation-buttons">
+              <a
+                href="#contact"
+                style={{ "--navigation-buttons-i": 1 } as React.CSSProperties}
+              >
+                <Button variant="primary">Let's Talk</Button>
+              </a>
 
-            <a href="#portfolio">
-              {" "}
-              <Button>My Work</Button>
-            </a>
+              <a
+                href="#portfolio"
+                style={{ "--navigation-buttons-i": 2 } as React.CSSProperties}
+              >
+                <Button>My Work</Button>
+              </a>
+            </div>
+            <div className="header__social-media-container">
+              {socialMediaLinksData?.map((element, index) => {
+                return (
+                  <div
+                    className="header__social-media-button"
+                    style={
+                      {
+                        "--social-media-buttons-i": index,
+                      } as React.CSSProperties
+                    }
+                  >
+                    <a
+                      key={element.id}
+                      href={element.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="header__social-media-icon"
+                    >
+                      {element.icon}
+                    </a>
+                    <span>{element.label}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="header__social-media-links">
-            {socialMediaLinksData?.map((element) => {
-              return (
-                <a
-                  key={element.id}
-                  href={element.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {element.icon}
-                </a>
-              );
-            })}
-          </div>
+          <div className="header__profile"></div>
         </div>
       </Box>
-    </div>
+    </section>
   );
 };
 
