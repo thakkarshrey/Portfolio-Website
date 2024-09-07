@@ -1,6 +1,5 @@
 /* SECTION UTILITY CLASSES */
 .section {
-  padding: 10rem 0;
   background-color: var(--light-color);
   transition: var(--transition);
   overflow-x: hidden;
@@ -24,11 +23,11 @@
   background-color: var(--white-color);
 }
 
-.section > h2 {
+.section>h2 {
   text-align: center;
 }
 
-.section > p {
+.section>p {
   text-align: center;
   margin: 0.5rem auto 4rem;
   width: 40%;
@@ -39,7 +38,7 @@
     padding: 8rem 0;
   }
 
-  .section > p {
+  .section>p {
     width: var(--container-width-md);
     margin-bottom: 3rem;
   }

@@ -42,7 +42,7 @@ const Header = (props: Props) => {
   /* social media links array */
 
   return (
-    <section id="header" className="section">
+    <section id="header">
       <Box>
         <div className="header__container">
           <div className="header__content">

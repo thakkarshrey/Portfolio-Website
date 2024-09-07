@@ -1,3 +1,9 @@
+#header {
+  min-height: fit-content;
+  overflow-x: hidden;
+  padding-top: 10rem;
+}
+
 .header__container {
   display: flex;
   gap: 3rem;
@@ -10,7 +16,7 @@
 .header__profile {
   width: 18rem;
   height: 18rem;
-  background-image: url(/public/assets/images/Shrey_Profile.jpg);
+  background-image: url(/public/assets/images/Shrey_Profile_01.jpg);
   background-position: center center;
   background-size: cover;
   margin-bottom: 1.5rem;
@@ -18,6 +24,7 @@
   animation: animate-header-image 5s ease-in-out infinite;
   transform: translateX(100%);
   opacity: 0;
+  box-shadow: 0px 5px 5px 5px rgba(13, 110, 253, 0.2);
 }
 
 #header.show-animation .header__profile {
@@ -26,6 +33,7 @@
 }
 
 @keyframes animate-header-image {
+
   0%,
   100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -35,6 +43,7 @@
     border-radius: 30% 60% 70% 40% / 50% 60% 30% 40%;
   }
 }
+
 /* Header profile photo */
 
 /* Header content and typewriter effect */
@@ -48,6 +57,7 @@
   opacity: 0;
   transition: 1s;
 }
+
 #header.show-animation .header__content h3 {
   transform: translateX(0);
   opacity: 1;
@@ -71,6 +81,7 @@
     opacity: 0%;
   }
 }
+
 /* Header content and typewriter effect */
 
 /* Navigation buttons */
@@ -80,9 +91,11 @@
   gap: 1rem;
   margin: 1.5rem 0;
 }
+
 .header__navigation-buttons a:nth-child(1) {
   z-index: 9;
 }
+
 .header__navigation-buttons a {
   transform: translateX(-100%);
   transition-delay: calc(0.3s * var(--navigation-buttons-i));
@@ -93,6 +106,7 @@
   transform: translateX(0);
   opacity: 1;
 }
+
 /* Navigation buttons */
 
 /* Social media buttons */
@@ -101,8 +115,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  background: var(--white-color);
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background: var(--light-color);
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
   cursor: pointer;
   margin: 0 5px;
   overflow: hidden;
@@ -152,8 +166,9 @@
   text-align: center;
   font-size: 1rem;
   line-height: 40px;
-  color: var(--black-color);
+  color: var(--primary-color);
 }
+
 /* Social media buttons */
 
 /* MEDIA QUERIES */
@@ -171,8 +186,10 @@
   .header__container p {
     width: 100%;
   }
+
   .header__social-media-links {
     display: none;
   }
 }
+
 /* MEDIA QUERIES */

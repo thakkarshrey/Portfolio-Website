@@ -4,8 +4,9 @@
   --dark-lightness: 44%;
   --light-lightness: 94%;
   --white-lightness: 100%;
-  --primary-color: hsl(var(--primary-hue), 89%, 41%);
+  /* --primary-color: hsl(var(--primary-hue), 89%, 41%); */
   /* --primary-color: #a07161; */
+  --primary-color: #588dc7;
   --white-color: hsl(0, 5%, var(--white-lightness));
   --light-color: hsl(var(--primary-hue), 5%, var(--light-lightness));
   --black-color: hsl(var(--primary-hue), 5%, var(--black-lightness));
