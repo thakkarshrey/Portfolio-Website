@@ -58,7 +58,6 @@ const Navbar = (props: Props) => {
     };
 
     window.addEventListener("scroll", scrollFunction);
-
     return () => {
       window.removeEventListener("scroll", scrollFunction);
       setIsScroll(false);
@@ -71,7 +70,7 @@ const Navbar = (props: Props) => {
         <div
           className="navbar__container"
         >
-          <a href="#home">
+          <a href="#header">
             <p className="navbar__name">Shrey.</p>
           </a>
 
