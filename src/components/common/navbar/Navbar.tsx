@@ -1,8 +1,7 @@
 import Box from "../box";
 import { navbarUtils } from "./Data";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPalette } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useRef, useState } from "react";
+import ThemeChanger from "../theme-changer";
 import "./Navbar.css";
 
 type Props = {};
@@ -74,7 +73,7 @@ const Navbar = (props: Props) => {
             <p className="navbar__name">Shrey.</p>
           </a>
 
-          <div style={{ display: "flex", gap: "5rem" }}>
+          <div className="navbar__content">
             <ul className="navbar__menu">
               {navbarUtils?.map(
                 (
@@ -97,10 +96,8 @@ const Navbar = (props: Props) => {
               <div className="navbar__indicator" ref={indicatorRef}></div>
             </ul>
 
-            <button className="navbar__theme-icon">
-              <FontAwesomeIcon icon={faPalette} />
-            </button>
           </div>
+          <ThemeChanger />
         </div>
       </Box>
     </nav>

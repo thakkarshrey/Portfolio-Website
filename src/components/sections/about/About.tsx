@@ -1,10 +1,34 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Box from "../../common/box";
 import Button from "../../common/button";
 import "./About.css"
+import { faBuildingColumns, faMedal } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {};
 
+type ExperienceAndEducationCardProps = {
+  icon: React.ReactElement
+  title: string
+  paragraph_01: string
+  paragraph_02: string
+}
+
 const About = (props: Props) => {
+  const experienceData = [
+    {
+      icon: <FontAwesomeIcon icon={faMedal} />,
+      title: "Experience",
+      paragraph_01: "3.2 years",
+      paragraph_02: "Frontend Development"
+    },
+    {
+      icon: <FontAwesomeIcon icon={faBuildingColumns} />,
+      title: "Education",
+      paragraph_01: "Bachelors Degree",
+      paragraph_02: "Electrical Engineer"
+    }
+  ];
+
   return (
     <section id="about">
       <Box>
@@ -18,9 +42,15 @@ const About = (props: Props) => {
             </div>
             <div className="about__content">
               <div className="about__cards">
-
+                {
+                  experienceData?.map((element: ExperienceAndEducationCardProps) => {
+                    return <ExperienceAndEducationCard {...element} />
+                  })
+                }
               </div>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate veritatis voluptate quibusdam, sunt voluptatem laboriosam ad officiis? Tenetur architecto doloribus itaque aperiam nemo perspiciatis cupiditate non tempore laboriosam mollitia qui inventore, placeat quis, sapiente incidunt. Ullam id eius nemo quas, tempora eveniet distinctio saepe commodi deserunt minus quisquam aliquam iure?</p>
+              <p>Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.</p>
+              <p>I have over 3 years of experience in Frontend Development. I love building responsive web apps and improving user interfaces.</p>
+              <p>Outside of work, I’m dedicated to maintaining a healthy lifestyle. When I'm not coding, you’ll likely find me at the gym working out or playing and watching football — a great way to balance the focus-driven nature of my coding life with physical activity.</p>
               <a
                 href="#contact"
               >
@@ -34,5 +64,20 @@ const About = (props: Props) => {
     </section>
   );
 };
+
+
+function ExperienceAndEducationCard({ icon, title, paragraph_01, paragraph_02 }: ExperienceAndEducationCardProps) {
+  return (
+    <div>
+      <span className="about__cards-icon">
+        {icon}
+      </span>
+      <h5>
+        {title}
+      </h5>
+      <small>{paragraph_01} <br />{paragraph_02}</small>
+    </div>
+  )
+}
 
 export default About;

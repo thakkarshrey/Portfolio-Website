@@ -30,10 +30,16 @@
   font-weight: 500;
 }
 
+.navbar__content {
+  display: flex;
+  gap: 5rem;
+}
+
 .navbar__menu {
   position: relative;
   display: flex;
   gap: 1rem;
+  list-style: none;
 }
 
 .navbar__list-item>a {
@@ -47,6 +53,7 @@
   color: var(--primary-color);
   position: relative;
   font-weight: 500;
+  list-style: none;
 }
 
 .navbar__indicator {
