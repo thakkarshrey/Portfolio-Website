@@ -1,26 +1,13 @@
 /* SECTION UTILITY CLASSES */
 .section {
-  background-color: var(--light-color);
   transition: var(--transition);
   overflow-x: hidden;
-  /* animation: appear linear;
-  animation-timeline: view();
-  animation-range: entry 0 cover 40%; */
+  position: relative;
+  min-height: 100vh;
 }
 
-/* @keyframes appear {
-  from {
-    opacity: 0;
-    scale: 0.5;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
-} */
-
-.section:nth-child(even) {
-  background-color: var(--white-color);
+.section:nth-child(odd) {
+  background-color: var(--light-color);
 }
 
 .section>h2 {

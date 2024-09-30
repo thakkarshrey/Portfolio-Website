@@ -3,6 +3,8 @@ import Header from "../components/common/header";
 import Navbar from "../components/common/navbar";
 import About from "../components/sections/about";
 import "./App.css";
+import Portfolio from "../components/sections/portfolio";
+import Contact from "../components/sections/contact";
 
 type Props = {};
 
@@ -32,6 +34,8 @@ const App = (props: Props) => {
       <Navbar />
       <Header />
       <About />
+      <Portfolio />
+      <Contact />
     </>
   );
 };

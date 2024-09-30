@@ -1,7 +1,7 @@
 #header {
-  min-height: calc(100vh - 4.5rem);
+  min-height: 100vh;
   overflow-x: hidden;
-  /* padding-top: 10rem; */
+  padding-top: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +25,7 @@
   margin-bottom: 1.5rem;
   transition: all 1s;
   animation: animate-header-image 5s ease-in-out infinite;
-  transform: translateX(100%);
+  transform: translateY(-100%);
   opacity: 0;
   box-shadow: 0px 5px 5px 5px rgba(13, 110, 253, 0.2);
 }

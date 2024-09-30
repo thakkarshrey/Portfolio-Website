@@ -33,12 +33,18 @@ const About = (props: Props) => {
     <section id="about">
       <Box>
         <div className="about__card-container">
-          <p>Get to Know more</p>
+          {/* <p>Get to Know more</p> */}
           <h2>About me</h2>
           <div className="about__card">
             <div className="about__profile">
-              <div className="about__front-image"></div>
-              <div className="about__back-image"></div>
+              <div className="about__front-image">
+              </div>
+              <div className="about__back-image">
+                <div className="about__back-image-content">
+                  <p>Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.</p>
+                  <p>I have over 3 years of experience in Frontend Development.</p>
+                </div>
+              </div>
             </div>
             <div className="about__content">
               <div className="about__cards">
@@ -48,8 +54,9 @@ const About = (props: Props) => {
                   })
                 }
               </div>
-              <p>Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.</p>
-              <p>I have over 3 years of experience in Frontend Development. I love building responsive web apps and improving user interfaces.</p>
+              {/* <p>Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.</p>
+              <p>I have over 3 years of experience in Frontend Development. I love building responsive web apps and improving user interfaces.</p> */}
+              <p>I love building responsive web apps and improving user interfaces.</p>
               <p>Outside of work, I’m dedicated to maintaining a healthy lifestyle. When I'm not coding, you’ll likely find me at the gym working out or playing and watching football — a great way to balance the focus-driven nature of my coding life with physical activity.</p>
               <a
                 href="#contact"
