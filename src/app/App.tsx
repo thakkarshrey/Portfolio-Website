@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import Header from "../components/common/header";
 import Navbar from "../components/common/navbar";
 import About from "../components/sections/about";
-import "./App.css";
-import Portfolio from "../components/sections/portfolio";
+import Projects from "../components/sections/projects";
 import Contact from "../components/sections/contact";
+import "./App.css";
 
 type Props = {};
 
@@ -12,7 +12,6 @@ const App = (props: Props) => {
   useEffect(() => {
     function animate() {
       const sections = document.querySelectorAll("section");
-      console.log(sections, "sections");
       sections.forEach((element) => {
         const scrollY = window.scrollY;
         const offsetTop = element.offsetTop - 150;
@@ -34,10 +33,19 @@ const App = (props: Props) => {
       <Navbar />
       <Header />
       <About />
-      <Portfolio />
+      <Skills />
+      <Projects />
       <Contact />
     </>
   );
 };
+
+const Skills = () => {
+  return (
+    <section id="skills" className="section">
+      <h2>Skills</h2>
+    </section>
+  )
+}
 
 export default App;

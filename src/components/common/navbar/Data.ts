@@ -11,8 +11,8 @@ export const navbarUtils = [
   },
   {
     id: 3,
-    title: "Portfolio",
-    link: "#portfolio",
+    title: "Projects",
+    link: "#projects",
   },
   {
     id: 4,
