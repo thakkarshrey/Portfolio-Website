@@ -1,19 +1,27 @@
 .projects-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.projects-container .projects-container__cards-container {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 100px 50px;
-    padding: 100px 50px;
+    padding: 50px 50px;
     transform-style: preserve-3d;
 }
 
 
 .projects-container .projects-container__card {
     position: relative;
-    width: 350px;
+    width: 450px;
     height: 300px;
-    background: #fff;
+    background: var(--white-color);
+    border: none;
     border-radius: 1rem;
     box-shadow: 0px 35px 80px rgba(0, 0, 0, 0.15);
     display: flex;
@@ -24,20 +32,23 @@
 
 .projects-container .projects-container__card:hover {
     cursor: pointer;
-    height: 400px;
+    height: 500px;
+    background: var(--light-color);
+    border: 2px solid var(--white-color);
 }
 
 
 .projects-container .projects-container__card .projects-container__img-box {
     position: absolute;
     top: 20px;
-    background: #333;
-    width: 300px;
+    width: 400px;
     height: 220px;
     border-radius: 12px;
     transition: 0.5s;
     overflow: hidden;
     transform-style: preserve-3d;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+    background: var(--white-color);
 }
 
 .projects-container .projects-container__card:hover .projects-container__img-box {
@@ -50,8 +61,10 @@
 .projects-container .projects-container__card .projects-container__img-box img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    z-index: 2;
 }
+
 
 .projects-container .projects-container__card .projects-container__content {
     position: absolute;
@@ -61,13 +74,13 @@
     text-align: center;
     height: 30px;
     overflow: hidden;
-    transition: 0.5s;
+    transition: 0.3s;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
 .projects-container .projects-container__card:hover .projects-container__content {
-    top: 150px;
-    height: 250px;
+    top: 100px;
+    height: 370px;
 }

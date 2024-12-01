@@ -1,0 +1,18 @@
+.tags-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: rgba(88, 141, 199, 0.2);
+    /* Muted, soft pastel */
+    color: var(--dark-color);
+    padding: 0.2rem 0.8rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: var(--border-radius-3);
+    transition: var(--transition);
+}

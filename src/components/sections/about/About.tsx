@@ -1,8 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Box from "../../common/box";
 import Button from "../../common/button";
-import "./About.css"
 import { faBuildingColumns, faMedal } from "@fortawesome/free-solid-svg-icons";
+import "./About.css"
 
 type Props = {};
 
@@ -30,10 +30,9 @@ const About = (props: Props) => {
   ];
 
   return (
-    <section id="about">
+    <section id="about" className="section">
       <Box>
         <div className="about__card-container">
-          {/* <p>Get to Know more</p> */}
           <h2>About me</h2>
           <div className="about__card">
             <div className="about__profile">
@@ -47,6 +46,7 @@ const About = (props: Props) => {
               </div>
             </div>
             <div className="about__content">
+
               <div className="about__cards">
                 {
                   experienceData?.map((element: ExperienceAndEducationCardProps) => {
@@ -57,7 +57,8 @@ const About = (props: Props) => {
               {/* <p>Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.</p>
               <p>I have over 3 years of experience in Frontend Development. I love building responsive web apps and improving user interfaces.</p> */}
               <p>I love building responsive web apps and improving user interfaces.</p>
-              <p>Outside of work, I’m dedicated to maintaining a healthy lifestyle. When I'm not coding, you’ll likely find me at the gym working out or playing and watching football — a great way to balance the focus-driven nature of my coding life with physical activity.</p>
+              {/* <p>Outside of work, I’m dedicated to maintaining a healthy lifestyle. When I'm not coding, you’ll likely find me at the gym working out or playing and watching football — a great way to balance the focus-driven nature of my coding life with physical activity.</p> */}
+              <p>Outside work, I stay active by hitting the gym, playing, or watching football—balancing my coding life with fitness and fun.</p>
               <a
                 href="#contact"
               >

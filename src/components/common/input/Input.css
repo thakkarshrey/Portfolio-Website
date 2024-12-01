@@ -1,0 +1,76 @@
+.input-container {
+    position: relative;
+    width: 100%;
+    max-width: calc(100% - 3rem);
+}
+
+.input-field {
+    width: 100%;
+    height: 42px;
+    font-size: 14px;
+    font-family: var(--default-font-family);
+    color: var(--grey-color);
+    padding: 0 0.5rem;
+    transition: 0.3s ease-in;
+    outline: none;
+    background: var(--white-color);
+}
+
+/* outlined input field */
+.input-field-outlined {
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+}
+
+.input-field-outlined:focus {
+    outline: none;
+    border: 1px solid var(--primary-color);
+
+}
+
+/* standard input field */
+.input-field-standard {
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.input-field-standard:focus {
+    outline: none;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+/* input field when error - outlined */
+.input-field-error-outlined {
+    border: 1px solid var(--red-color);
+    border-radius: 6px;
+}
+
+/* input field when error - standard */
+.input-field-error-standard {
+    border-bottom: 1px solid var(--red-color);
+}
+
+.input-field-disabled {
+    background: var(--light-color);
+}
+
+/* hide arrows in input field - type number */
+.input-field::-webkit-outer-spin-button,
+.input-field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-field[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* hide arrows in input field - type number */
+
+
+/* cursor - pointer for type date input field */
+.input-field::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+/* cursor - pointer for type date input field */

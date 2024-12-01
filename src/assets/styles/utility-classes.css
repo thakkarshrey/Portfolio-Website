@@ -3,7 +3,7 @@
   transition: var(--transition);
   overflow-x: hidden;
   position: relative;
-  min-height: 100vh;
+  padding: 6rem 0;
 }
 
 .section:nth-child(odd) {
@@ -16,8 +16,6 @@
 
 .section>p {
   text-align: center;
-  margin: 0.5rem auto 4rem;
-  width: 40%;
 }
 
 @media screen and (max-width: 1024px) {

@@ -1,0 +1,38 @@
+.textarea-container {
+  position: relative;
+  width: 100%;
+  max-width: calc(100% - 3rem);
+}
+
+.text-area {
+  width: 100%;
+  resize: none;
+  font-size: 14px;
+  font-family: var(--default-font-family);
+  color: var(--light-color);
+  padding: 0.5rem;
+  transition: 0.3s ease-in;
+  outline: none;
+  background: var(--white-color);
+}
+
+/* outlined input field */
+.text-area-outlined {
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
+}
+
+.text-area-outlined:focus {
+  outline: none;
+  border: 1px solid var(--primary-color);
+}
+
+/* input field when error */
+.text-area-error {
+  border: 1px solid var(--red-color);
+  border-radius: 6px;
+}
+
+.text-area-disabled {
+  background: var(--light-color);
+}

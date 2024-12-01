@@ -42,7 +42,7 @@ const Header = (props: Props) => {
   /* social media links array */
 
   return (
-    <section id="header">
+    <section id="header" className="section">
       <Box>
         <div className="header__container">
           <div className="header__content">
@@ -64,7 +64,7 @@ const Header = (props: Props) => {
                 href="#portfolio"
                 style={{ "--navigation-buttons-i": 2 } as React.CSSProperties}
               >
-                <Button>My Work</Button>
+                <Button >My Work</Button>
               </a>
             </div>
             <div className="header__social-media-container">

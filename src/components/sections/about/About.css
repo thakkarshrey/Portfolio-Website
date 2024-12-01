@@ -1,16 +1,11 @@
 #about {
     background-color: var(--light-color);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
 }
 
 .about__card-container {
     text-align: center;
     transition: var(--transition);
-    /* transform: scale(0.6);
-    opacity: 0; */
 }
 
 .about__card-container h2 {
@@ -127,7 +122,8 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border: 1rem solid var(--light-color);
+    border: 1rem solid var(--white-color);
+    z-index: 10;
 }
 
 .about__front-image {
