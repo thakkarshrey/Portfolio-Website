@@ -57,6 +57,10 @@
     color: var(--white-color);
 }
 
+.contact-container__cards a {
+    color: var(--primary-color);
+}
+
 
 .contact-container__form {
     flex: 2;

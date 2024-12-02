@@ -5,6 +5,7 @@ import About from "../components/sections/about";
 import Projects from "../components/sections/projects";
 import Contact from "../components/sections/contact";
 import "./App.css";
+import Footer from "../components/common/footer";
 
 type Props = {};
 
@@ -36,6 +37,7 @@ const App = (props: Props) => {
       <Skills />
       <Projects />
       <Contact />
+      <Footer />
     </>
   );
 };
@@ -43,7 +45,8 @@ const App = (props: Props) => {
 const Skills = () => {
   return (
     <section id="skills" className="section">
-      <h2>Skills</h2>
+      <h2>Technologies</h2>
+      <p>I use</p>
     </section>
   )
 }
