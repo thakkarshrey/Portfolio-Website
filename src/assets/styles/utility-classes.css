@@ -3,7 +3,8 @@
   transition: var(--transition);
   overflow-x: hidden;
   position: relative;
-  padding: 6rem 0;
+  padding: 8rem 0;
+  /* min-height: 100dvh; */
 }
 
 .section:nth-child(odd) {
@@ -38,7 +39,6 @@
   font-size: 14px;
   font-family: var(--default-font-family);
   padding: 1rem;
-  transition: 0.3s ease-in;
   outline: none;
   background: var(--white-color);
 }
@@ -66,7 +66,6 @@
   font-size: 14px;
   font-family: var(--default-font-family);
   padding: 1rem;
-  transition: 0.3s ease-in;
   outline: none;
   background: var(--white-color);
 }

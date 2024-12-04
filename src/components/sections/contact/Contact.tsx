@@ -92,10 +92,10 @@ const Contact = (props: Props) => {
             </div>
             <div className="contact-container__form">
               <form onSubmit={onSubmit} className="contact-container__form-container">
-                <input className="input-field input-field-outlined" type="text" name="name" required placeholder="Your name" />
-                <input className="input-field input-field-outlined" type="email" name="email" required placeholder="Your email" />
-                <textarea className="text-area text-area-outlined" name="message" required rows={6} placeholder="Your message" />
-                <Button type="submit" variant="primary">Send Message</Button>
+                <input style={{ "--input-field-i": 1 } as React.CSSProperties} className="input-field input-field-outlined" type="text" name="name" required placeholder="Your name" />
+                <input style={{ "--input-field-i": 2 } as React.CSSProperties} className="input-field input-field-outlined" type="email" name="email" required placeholder="Your email" />
+                <textarea style={{ "--input-field-i": 3 } as React.CSSProperties} className="text-area text-area-outlined" name="message" required rows={6} placeholder="Your message" />
+                <Button disabled={loading} style={{ "--input-field-i": 4 } as React.CSSProperties} type="submit" variant="primary">Send Message</Button>
               </form>
             </div>
           </div>
@@ -108,7 +108,7 @@ const Contact = (props: Props) => {
 function Cards({ id, icon, title, paragraph_01, paragraph_02 }: CardProps) {
   const email = "thakkarshrey10.st@gmail.com";
   return (
-    <div>
+    <div style={{ "--contact-cards-i": id } as React.CSSProperties} className="contact-container__card">
       <span className="cards-icon">
         {icon}
       </span>

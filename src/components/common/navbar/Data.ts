@@ -11,11 +11,16 @@ export const navbarUtils = [
   },
   {
     id: 3,
+    title: "Skills",
+    link: "#skills",
+  },
+  {
+    id: 4,
     title: "Projects",
     link: "#projects",
   },
   {
-    id: 4,
+    id: 5,
     title: "Contact",
     link: "#contact",
   },

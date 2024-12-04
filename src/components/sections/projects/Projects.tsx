@@ -56,36 +56,38 @@ const Projects = (props: Props) => {
             {
               projectsArr?.map((project) => {
                 return (
-                  <ReactParallaxTilt className="projects-container__card">
-                    <div className="projects-container__img-box">
-                      <img src={project.image} alt={project.name} />
-                    </div>
-                    <div className="projects-container__content">
-                      <h4>{project.name}</h4>
-                      <p>{project.description}</p>
-                      <Tags data={project.techStack} />
-                      <div style={{ display: 'grid', gap: '1rem', alignContent: 'center' }}>
-                        {
-                          project?.githubLink &&
+                  <div className="projects-container__parent-card">
+                    <ReactParallaxTilt className="projects-container__card">
+                      <div className="projects-container__img-box">
+                        <img src={project.image} alt={project.name} />
+                      </div>
+                      <div className="projects-container__content">
+                        <h4>{project.name}</h4>
+                        <p>{project.description}</p>
+                        <Tags data={project.techStack} />
+                        <div style={{ display: 'grid', gap: '1rem', alignContent: 'center' }}>
+                          {
+                            project?.githubLink &&
+                            <a
+                              href={project.liveDemo}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <Button variant="secondary">Github</Button>
+                            </a>
+                          }
                           <a
                             href={project.liveDemo}
                             target="_blank"
                             rel="noreferrer"
                           >
-                            <Button variant="secondary">Github</Button>
+                            <Button variant="primary" >Live Demo</Button>
                           </a>
-                        }
-                        <a
-                          href={project.liveDemo}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <Button variant="primary" >Live Demo</Button>
-                        </a>
 
+                        </div>
                       </div>
-                    </div>
-                  </ReactParallaxTilt>
+                    </ReactParallaxTilt>
+                  </div>
                 )
               })
             }

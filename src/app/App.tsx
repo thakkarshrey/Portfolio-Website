@@ -6,6 +6,7 @@ import Projects from "../components/sections/projects";
 import Contact from "../components/sections/contact";
 import "./App.css";
 import Footer from "../components/common/footer";
+import Skills from "../components/sections/skills";
 
 type Props = {};
 
@@ -17,7 +18,6 @@ const App = (props: Props) => {
         const scrollY = window.scrollY;
         const offsetTop = element.offsetTop - 150;
         const offsetHeight = element.offsetHeight;
-        console.log({ scrollY, offsetTop, offsetHeight });
         if (scrollY > offsetTop && scrollY < offsetTop + offsetHeight) {
           element.classList.add("show-animation");
         } else {
@@ -42,13 +42,5 @@ const App = (props: Props) => {
   );
 };
 
-const Skills = () => {
-  return (
-    <section id="skills" className="section">
-      <h2>Technologies</h2>
-      <p>I use</p>
-    </section>
-  )
-}
 
 export default App;

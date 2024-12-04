@@ -5,6 +5,17 @@
     justify-content: center;
 }
 
+.projects-container h2 {
+    transform: scale(0.6);
+    opacity: 0;
+    transition: 1s;
+}
+
+#projects.show-animation .projects-container h2 {
+    transform: scale(1);
+    opacity: 1;
+}
+
 .projects-container .projects-container__cards-container {
     display: flex;
     justify-content: center;
@@ -27,7 +38,6 @@
     display: flex;
     justify-content: center;
     transform-style: preserve-3d;
-    transition: 0.5s;
 }
 
 .projects-container .projects-container__card:hover {
@@ -35,6 +45,24 @@
     height: 500px;
     background: var(--light-color);
     border: 2px solid var(--white-color);
+}
+
+.projects-container .projects-container__cards-container .projects-container__parent-card {
+    opacity: 0;
+    transition: 1s;
+}
+
+.projects-container .projects-container__cards-container .projects-container__parent-card:nth-child(odd) {
+    transform: translateX(-100%);
+}
+
+.projects-container .projects-container__cards-container .projects-container__parent-card:nth-child(even) {
+    transform: translateX(100%);
+}
+
+#projects.show-animation .projects-container .projects-container__cards-container .projects-container__parent-card {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 

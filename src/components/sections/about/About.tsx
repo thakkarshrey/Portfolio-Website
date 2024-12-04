@@ -33,8 +33,11 @@ const About = (props: Props) => {
     <section id="about" className="section">
       <Box>
         <div className="about__card-container">
-          <p>Get to know</p>
-          <h2>About me</h2>
+          <div>
+            <p className="about__get-to-know-title">Get to know</p>
+            <h2 className="about__about-me-title">About me</h2>
+
+          </div>
           <div className="about__card">
             <div className="about__profile">
               <div className="about__front-image">
