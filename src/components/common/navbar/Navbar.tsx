@@ -1,7 +1,6 @@
 import Box from "../box";
 import { navbarUtils } from "./Data";
 import { useEffect, useRef, useState } from "react";
-import ThemeChanger from "../theme-changer";
 import "./Navbar.css";
 
 type Props = {};
@@ -97,7 +96,7 @@ const Navbar = (props: Props) => {
             </ul>
 
           </div>
-          <ThemeChanger />
+          {/* <ThemeChanger /> */}
         </div>
       </Box>
     </nav>

@@ -18,7 +18,7 @@ const About = (props: Props) => {
     {
       icon: <FontAwesomeIcon icon={faMedal} />,
       title: "Experience",
-      paragraph_01: "3.2 years",
+      paragraph_01: "3.6 years",
       paragraph_02: "Frontend Development"
     },
     {

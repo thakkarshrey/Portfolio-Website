@@ -46,7 +46,7 @@ const Header = (props: Props) => {
       <Box>
         <div className="header__container">
           <div className="header__content">
-            <h3>
+            <h3 className="about__about-me-title">
               Hey, I'm Shrey 👋 <br />I am a passionate{" "}
               <span id="header__typrwriter">{typeWriter}</span>
               <span id="header__cursor">|</span>
@@ -64,7 +64,7 @@ const Header = (props: Props) => {
                 href="#portfolio"
                 style={{ "--navigation-buttons-i": 2 } as React.CSSProperties}
               >
-                <Button >My Work</Button>
+                <Button variant="secondary">My Work</Button>
               </a>
             </div>
             <div className="header__social-media-container">
