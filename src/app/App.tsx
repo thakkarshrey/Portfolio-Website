@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import Header from "../components/common/header";
-import Navbar from "../components/common/navbar";
 import About from "../components/sections/about";
 import Projects from "../components/sections/projects";
 import Contact from "../components/sections/contact";
-import "./App.css";
 import Footer from "../components/common/footer";
 import Skills from "../components/sections/skills";
+import FloatingNavbar from "../components/common/floating-navbar";
+import "./App.css";
 
 type Props = {};
 
@@ -31,7 +31,7 @@ const App = (props: Props) => {
 
   return (
     <>
-      <Navbar />
+      <FloatingNavbar />
       <Header />
       <About />
       <Skills />

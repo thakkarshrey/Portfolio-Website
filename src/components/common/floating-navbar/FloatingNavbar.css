@@ -1,0 +1,96 @@
+#floating-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 2rem;
+    border-radius: 10px;
+    padding-inline: 2rem;
+    z-index: 12;
+    backdrop-filter: blur(15px);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#floating-navbar .floating-navbar__menu {
+    position: relative;
+    display: flex;
+}
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item {
+    list-style: none;
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+}
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    font-weight: 500;
+}
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item a .floating-navbar__icon {
+    line-height: 60px;
+    display: block;
+    position: relative;
+    font-size: 1.2rem;
+    transition: all 0.5s;
+}
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item.floating-navbar--active-tab a .floating-navbar__icon {
+    transform: translateY(-30px);
+}
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item a .floating-navbar__text {
+    position: absolute;
+    font-size: 0.70rem;
+    color: var(--primary-color);
+    letter-spacing: 0.05rem;
+    transition: all 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item.floating-navbar--active-tab a .floating-navbar__text {
+    transform: translateY(12px);
+    opacity: 1;
+}
+
+.floating-navbar__indicator {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: -50%;
+    border-radius: 50%;
+    transition: all 0.5s;
+}
+
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(1).floating-navbar--active-tab~.floating-navbar__indicator {
+    transform: translateX(calc(60px * 0));
+}
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(2).floating-navbar--active-tab~.floating-navbar__indicator {
+    transform: translateX(calc(60px * 1));
+}
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(3).floating-navbar--active-tab~.floating-navbar__indicator {
+    transform: translateX(calc(60px * 2));
+}
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(4).floating-navbar--active-tab~.floating-navbar__indicator {
+    transform: translateX(calc(60px * 3));
+}
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(5).floating-navbar--active-tab~.floating-navbar__indicator {
+    transform: translateX(calc(60px * 4));
+}
