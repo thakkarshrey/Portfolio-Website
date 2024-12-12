@@ -60,7 +60,7 @@ const FloatingNavbar = (props: Props) => {
                   onClick={(event) => onNavbarClicked(event, index)}
                 >
                   <span className="floating-navbar__icon">{element.icon} </span>
-                  <span className="floating-navbar__text">{element.title} </span>
+                  {/* <span className="floating-navbar__text">{element.title} </span> */}
                 </a>
               </li>
             );
