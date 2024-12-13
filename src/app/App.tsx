@@ -5,15 +5,15 @@ import Projects from "../components/sections/projects";
 import Contact from "../components/sections/contact";
 import Footer from "../components/common/footer";
 import Skills from "../components/sections/skills";
-import FloatingNavbar from "../components/common/floating-navbar";
 import "./App.css";
+import FloatingNavbar from "../components/common/floating-navbar";
 
 type Props = {};
 
 const App = (props: Props) => {
   useEffect(() => {
+    const sections = document.querySelectorAll("section");
     function animate() {
-      const sections = document.querySelectorAll("section");
       sections.forEach((element) => {
         const scrollY = window.scrollY;
         const offsetTop = element.offsetTop - 150;
@@ -23,11 +23,15 @@ const App = (props: Props) => {
         } else {
           element.classList.remove("show-animation");
         }
+        console.log({ scrollY, offsetTop, offsetHeight })
       });
     }
     window.onscroll = () => animate();
     window.onload = () => animate();
-  });
+
+    sections[0].classList.add("show-animation")
+
+  }, []);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { faAddressBook, faAddressCard, faCode, faHouse, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./FloatingNavbar.css";
 import { useState } from "react";
+import "./FloatingNavbar.css";
 
 type Props = {};
 
@@ -40,6 +40,7 @@ const FloatingNavbar = (props: Props) => {
     },
   ];
 
+
   const onNavbarClicked = (event: React.MouseEvent<HTMLElement>,
     index: number) => {
     setCurrentTabIndex(index)
@@ -60,7 +61,6 @@ const FloatingNavbar = (props: Props) => {
                   onClick={(event) => onNavbarClicked(event, index)}
                 >
                   <span className="floating-navbar__icon">{element.icon} </span>
-                  {/* <span className="floating-navbar__text">{element.title} </span> */}
                 </a>
               </li>
             );
