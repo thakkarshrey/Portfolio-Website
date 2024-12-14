@@ -7,6 +7,7 @@ import Footer from "../components/common/footer";
 import Skills from "../components/sections/skills";
 import "./App.css";
 import FloatingNavbar from "../components/common/floating-navbar";
+import Experience from "../components/sections/experience";
 
 type Props = {};
 
@@ -38,6 +39,7 @@ const App = (props: Props) => {
       <FloatingNavbar />
       <Header />
       <About />
+      <Experience />
       <Skills />
       <Projects />
       <Contact />

@@ -119,3 +119,7 @@
 #floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(5).floating-navbar--active-tab~.floating-navbar__indicator {
     transform: translateY(calc(60px * 4));
 }
+
+#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(6).floating-navbar--active-tab~.floating-navbar__indicator {
+    transform: translateY(calc(60px * 5));
+}

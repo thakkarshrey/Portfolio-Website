@@ -1,4 +1,4 @@
-import { faAddressBook, faAddressCard, faCode, faHouse, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
+import { faAddressBook, faAddressCard, faCode, faHouse, faLaptopFile, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import "./FloatingNavbar.css";
@@ -22,18 +22,24 @@ const FloatingNavbar = (props: Props) => {
     },
     {
       id: 3,
+      title: "Experience",
+      link: "#experience",
+      icon: <FontAwesomeIcon icon={faLaptopFile} style={{ color: "var(--white-color)" }} />,
+    },
+    {
+      id: 4,
       title: "Skills",
       link: "#skills",
       icon: <FontAwesomeIcon icon={faLayerGroup} style={{ color: "var(--white-color)" }} />,
     },
     {
-      id: 4,
+      id: 5,
       title: "Projects",
       link: "#projects",
       icon: <FontAwesomeIcon icon={faCode} style={{ color: "var(--white-color)" }} />,
     },
     {
-      id: 5,
+      id: 6,
       title: "Contact",
       link: "#contact",
       icon: <FontAwesomeIcon icon={faAddressBook} style={{ color: "var(--white-color)" }} />,
