@@ -1,6 +1,6 @@
 #header {
   overflow-x: hidden;
-  padding: 10rem 0;
+  padding: 8rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,6 +122,7 @@
   cursor: pointer;
   margin: 0 5px;
   overflow: hidden;
+  text-align: start;
   transition: width 0.3s ease-in-out,
     transform calc(0.7s * var(--social-media-buttons-i)) ease-in-out,
     opacity 0.3s ease-in-out;
@@ -177,6 +178,22 @@
 @media screen and (max-width: 1024px) {
   .header {
     margin: 5rem 0;
+  }
+
+  .header__social-media-container {
+    text-align: center;
+  }
+
+  .header__container {
+    flex-direction: column-reverse;
+  }
+
+  .header__content .about__about-me-title {
+    text-align: center;
+  }
+
+  .header__navigation-buttons {
+    justify-content: center;
   }
 }
 
