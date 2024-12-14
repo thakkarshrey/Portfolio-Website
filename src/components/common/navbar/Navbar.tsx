@@ -3,9 +3,8 @@ import { navbarUtils } from "./Data";
 import { useEffect, useRef, useState } from "react";
 import "./Navbar.css";
 
-type Props = {};
 
-const Navbar = (props: Props) => {
+const Navbar = () => {
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
   const indicatorRef: any = useRef(null);
   const anchorTagRef: any = useRef(null);
