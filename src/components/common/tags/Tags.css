@@ -7,12 +7,13 @@
 }
 
 .tag {
-    background-color: rgba(88, 141, 199, 0.2);
-    /* Muted, soft pastel */
-    color: var(--dark-color);
+    background-color: var(--white-color);
+    color: var(--primary-color);
     padding: 0.2rem 0.8rem;
-    border: 2px solid transparent;
+    border: 1px solid var(--primary-color);
     cursor: pointer;
     border-radius: var(--border-radius-3);
     transition: var(--transition);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
 }

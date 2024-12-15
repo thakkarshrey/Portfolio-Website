@@ -174,13 +174,13 @@
 }
 
 .about__front-image {
-    background: url(/public/assets/images/Shrey_Profile_05.jpg);
+    background: url(/public/assets/images/Shrey_Profile_03.jpg);
     background-position: center;
     background-size: cover;
 }
 
 .about__back-image {
-    background: url(/public/assets/images/Shrey_Profile_03.jpg);
+    background: url(/public/assets/images/Shrey_Profile_02.jpg);
     background-position: center;
     background-size: cover;
     transform: rotateY(180deg);

@@ -20,7 +20,22 @@
     transition: 1s;
 }
 
+#experience.show-animation .experience__card-container div:first-child {
+    text-align: center;
+}
+
 #experience.show-animation .experience__card-container h2 {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.experience__card-container .experience__explore-my-journey {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: 1s;
+}
+
+#experience.show-animation .experience__card-container .experience__explore-my-journey {
     transform: translateX(0);
     opacity: 1;
 }
@@ -56,15 +71,15 @@
 }
 
 .timeline .timeline__image {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     border: 3px solid var(--white-color);
     object-fit: cover;
     box-shadow: var(--box-shadow-md);
     transform: scale(0);
     opacity: 0;
-    transition: transform calc(0.5s * var(--company-logo-i)) ease-in-out;
+    transition: all calc(0.5s * var(--company-logo-i));
 }
 
 #experience.show-animation .timeline .timeline__image {
@@ -93,8 +108,24 @@
     box-shadow: var(--box-shadow-md);
     border-radius: 0.3rem;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
+.timeline .timeline__content-container .timeline__content .timeline__company-name-year {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timeline .timeline__content-container .timeline__content .timeline__company-name-year p {
+    font-weight: 500;
+}
+
+.timeline .timeline__content-container .timeline__content h5 {
+    color: var(--primary-color);
+}
 
 @media screen and (min-width:425px) {
     .timeline .timeline__image {
@@ -135,7 +166,7 @@
         padding-left: 2.5rem;
         transform: translateX(400px);
         opacity: 0;
-        transition: transform calc(0.5s * var(--timeline-content-i)) ease-in-out;
+        transition: all calc(0.5s * var(--timeline-content-i));
     }
 
     #experience.show-animation .timeline:nth-child(odd) .timeline__content-container {
@@ -150,7 +181,7 @@
         padding-right: 2.5rem;
         transform: translateX(-400px);
         opacity: 0;
-        transition: transform calc(0.5s * var(--timeline-content-i)) ease-in-out;
+        transition: all calc(0.5s * var(--timeline-content-i));
     }
 
     #experience.show-animation .timeline:nth-child(even) .timeline__content-container {
