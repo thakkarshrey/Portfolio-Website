@@ -3,13 +3,14 @@
   transition: var(--transition);
   overflow-x: hidden;
   position: relative;
-  /* padding: 8rem 0; */
-  /* min-height: 100dvh; */
+  min-height: 100dvh;
+  scroll-snap-align: start;
 }
 
-.section:nth-child(odd) {
-  background-color: var(--light-color);
-}
+/* .section:nth-child(odd) {
+  background-color: var(--white-color);
+} */
+
 
 .section>h2 {
   text-align: center;
