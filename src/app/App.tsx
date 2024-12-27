@@ -28,7 +28,7 @@ const App = (props: Props) => {
         });
       },
       {
-        threshold: 0.5, // Trigger when 50% of the element is visible
+        threshold: 0.5,
       }
     );
 
@@ -42,7 +42,7 @@ const App = (props: Props) => {
   }, []);
 
   return (
-    <div className="main-container">
+    <>
       <FloatingNavbar />
       <Header />
       <About />
@@ -51,7 +51,7 @@ const App = (props: Props) => {
       <Projects />
       <Contact />
       <Footer />
-    </div>
+    </>
   );
 };
 
@@ -85,7 +85,6 @@ export default App;
 //         } else {
 //           element.classList.remove("show-animation");
 //         }
-//         console.log({ scrollY, offsetTop, offsetHeight })
 //       });
 //     }
 //     window.onscroll = () => animate();

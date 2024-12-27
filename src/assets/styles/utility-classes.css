@@ -3,8 +3,8 @@
   transition: var(--transition);
   overflow-x: hidden;
   position: relative;
-  min-height: 100dvh;
-  scroll-snap-align: start;
+  min-height: 100vh;
+  /* scroll-snap-align: start; */
 }
 
 /* .section:nth-child(odd) {

@@ -72,33 +72,9 @@
     position: absolute;
     right: -50%;
     border-radius: 50%;
-    /* border: 6px solid var(--light-color); */
     transition: all 0.5s;
 }
 
-/* .floating-navbar__indicator::before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    right: 50%;
-    top: -22px;
-    border-bottom-right-radius: 20px;
-    box-shadow: 10px 0 0 0 var(--light-color);
-}
-
-.floating-navbar__indicator::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    right: 50%;
-    top: 52px;
-    border-top-right-radius: 20px;
-    box-shadow: 10px 0 0 0 var(--light-color);
-} */
 
 #floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(1).floating-navbar--active-tab~.floating-navbar__indicator {
     transform: translateY(calc(60px * 0));
