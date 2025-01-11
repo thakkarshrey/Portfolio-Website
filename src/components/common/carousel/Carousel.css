@@ -1,0 +1,55 @@
+/* .carousel-container__carousel {
+    overflow: hidden;
+    height: 100%;
+}
+
+.carousel-container__content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    transition: all 1s;
+} */
+
+.carousel-container__carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-container__content {
+    display: flex;
+    flex-direction: column;
+    /* Stack components vertically */
+    transition: transform 0.5s ease-in-out;
+    /* Smooth vertical sliding animation */
+}
+
+.carousel-section {
+    flex: 0 0 auto;
+    /* Prevent shrinking or growing */
+    box-sizing: border-box;
+}
+
+.carousel-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-btn.previous {
+    top: 10px;
+    /* Position "Previous" at the top */
+}
+
+.carousel-btn.next {
+    bottom: 10px;
+    /* Position "Next" at the bottom */
+}

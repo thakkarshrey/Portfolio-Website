@@ -71,6 +71,7 @@ const Header = (props: Props) => {
               {socialMediaLinksData?.map((element, index) => {
                 return (
                   <div
+                    key={element.id}
                     className="header__social-media-button"
                     style={
                       {

@@ -53,11 +53,11 @@ h6 {
 }
 
 /* IMAGE DEFAULT STYLES */
-img {
+/* img {
   display: block;
   width: 100%;
   object-fit: cover;
-}
+} */
 
 @media screen and (max-width: 768px) {
   h1 {

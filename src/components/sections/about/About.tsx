@@ -54,7 +54,7 @@ const About = (props: Props) => {
               <div className="about__cards">
                 {
                   experienceData?.map((element: ExperienceAndEducationCardProps) => {
-                    return <ExperienceAndEducationCard {...element} />
+                    return <ExperienceAndEducationCard {...element} key={element.title} />
                   })
                 }
               </div>
