@@ -7,6 +7,7 @@ import Footer from "../components/common/footer";
 import Skills from "../components/sections/skills";
 import FloatingNavbar from "../components/common/floating-navbar";
 import Experience from "../components/sections/experience";
+import BackgroundWithCanvas from "../components/common/background-with-canvas";
 import "./App.css";
 
 type Props = {};
@@ -42,7 +43,7 @@ const App = (props: Props) => {
   }, []);
 
   return (
-    <>
+    <BackgroundWithCanvas>
       <FloatingNavbar />
       <Header />
       <About />
@@ -51,7 +52,7 @@ const App = (props: Props) => {
       <Projects />
       <Contact />
       <Footer />
-    </>
+    </BackgroundWithCanvas>
   );
 };
 
