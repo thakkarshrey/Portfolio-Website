@@ -1,11 +1,8 @@
-import { faAddressBook, faAddressCard, faCode, faHouse, faLaptopFile, faLayerGroup } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
 import "./FloatingNavbar.css";
 
 type Component = {
   id: number;
-  component: React.ReactNode;  // To accept React components
+  component: React.ReactNode;
   title: string;
   link: string;
   icon: React.ReactNode;
@@ -17,74 +14,6 @@ type Props = {
 };
 
 const FloatingNavbar = ({ componentsArr, currentIndex, setCurrentIndex }: Props) => {
-  // const navbarUtils = [
-  //   {
-  //     id: 1,
-  //     title: "Home",
-  //     link: "#header",
-  //     icon: <FontAwesomeIcon icon={faHouse} style={{ color: "var(--white-color)" }} />,
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "About",
-  //     link: "#about",
-  //     icon: <FontAwesomeIcon icon={faAddressCard} style={{ color: "var(--white-color)" }} />,
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Experience",
-  //     link: "#experience",
-  //     icon: <FontAwesomeIcon icon={faLaptopFile} style={{ color: "var(--white-color)" }} />,
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Skills",
-  //     link: "#skills",
-  //     icon: <FontAwesomeIcon icon={faLayerGroup} style={{ color: "var(--white-color)" }} />,
-  //   },
-  //   {
-  //     id: 5,
-  //     title: "Projects",
-  //     link: "#projects",
-  //     icon: <FontAwesomeIcon icon={faCode} style={{ color: "var(--white-color)" }} />,
-  //   },
-  //   {
-  //     id: 6,
-  //     title: "Contact",
-  //     link: "#contact",
-  //     icon: <FontAwesomeIcon icon={faAddressBook} style={{ color: "var(--white-color)" }} />,
-  //   },
-  // ];
-  // const [currentElementLink, setCurrentElementLink] = useState(componentsArr[0]?.link);
-
-
-  // useEffect(() => {
-  //   const sections = document.querySelectorAll("section");
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           window.location.hash = `#${entry.target.id}`
-  //           setCurrentElementLink(`#${entry.target.id}`)
-  //         }
-  //       });
-  //     },
-  //     {
-  //       threshold: 0.5,
-  //     }
-  //   );
-
-  //   sections.forEach((section) => {
-  //     observer.observe(section);
-  //   });
-
-  //   return () => {
-  //     sections.forEach((section) => observer.unobserve(section));
-  //   };
-
-
-  // }, []);
-
   return (
     <div id="floating-navbar">
       <ul className="floating-navbar__menu">
@@ -92,11 +21,10 @@ const FloatingNavbar = ({ componentsArr, currentIndex, setCurrentIndex }: Props)
           (
             element: Component
           ) => {
-            return (
-              <li key={element.id} className={`floating-navbar__list-item ${element.id === currentIndex ? "floating-navbar--active-tab" : ""}`}>
-                <a
-                  href={element.link}
-                >
+            return (element.link &&
+              <li key={element.id} className={`floating-navbar__list-item ${element.id === currentIndex ? "floating-navbar--active-tab" : ""}`} onClick={() => setCurrentIndex(element.id)}>
+                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                <a>
                   <span className="floating-navbar__icon">{element.icon} </span>
                 </a>
               </li>

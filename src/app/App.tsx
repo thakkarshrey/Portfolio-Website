@@ -47,67 +47,65 @@ const App = (props: Props) => {
 
   const [data, setData] = useState([
     {
-      id: 1,
+      id: 0,
       component: <Header />,
       title: "Home",
       link: "#header",
       icon: <FontAwesomeIcon icon={faHouse} style={{ color: "var(--white-color)" }} />,
     },
     {
-      id: 2,
+      id: 1,
       component: <About />,
       title: "About",
       link: "#about",
       icon: <FontAwesomeIcon icon={faAddressCard} style={{ color: "var(--white-color)" }} />,
     },
     {
-      id: 3,
+      id: 2,
       component: <Experience />,
       title: "Experience",
       link: "#experience",
       icon: <FontAwesomeIcon icon={faLaptopFile} style={{ color: "var(--white-color)" }} />,
     },
     {
-      id: 4,
+      id: 3,
       component: <Skills />,
       title: "Skills",
       link: "#skills",
       icon: <FontAwesomeIcon icon={faLayerGroup} style={{ color: "var(--white-color)" }} />,
     },
     {
-      id: 5,
+      id: 4,
       component: <Projects />,
       title: "Projects",
       link: "#projects",
       icon: <FontAwesomeIcon icon={faCode} style={{ color: "var(--white-color)" }} />,
     },
     {
-      id: 6,
+      id: 5,
       component: <Contact />,
       title: "Contact",
       link: "#contact",
       icon: <FontAwesomeIcon icon={faAddressBook} style={{ color: "var(--white-color)" }} />,
     },
+    {
+      id: 6,
+      component: <Footer />,
+      title: "Footer",
+      link: "",
+      icon: <></>,
+    }
   ])
   const [loading, setLoading] = useState(false)
 
 
   return (
     <>
-      {/* <FloatingNavbar />
-      <Header />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer /> */}
       <BackgroundWithCanvas>
         <div className="carousel-container">
           <Carousel
             componentsPerSlide={1}
             componentsArr={data}
-            loading={loading}
             componentLimit={6}
           />
         </div>
