@@ -29,7 +29,7 @@ const Footer = (props: Props) => {
     },
   ]
   return (
-    <footer id="footer" className="section">
+    <footer id="footer" >
       <Box>
         <div className="footer-container">
           <h2>Shrey Thakkar</h2>

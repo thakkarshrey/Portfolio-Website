@@ -11,6 +11,7 @@ const Tags = ({ data, ...props }: Props) => {
             data?.map((element) => {
                 return (
                     <button
+                        key={element}
                         className="tag"
                         {...props}
                     >

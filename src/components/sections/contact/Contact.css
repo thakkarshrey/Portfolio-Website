@@ -17,6 +17,7 @@
     transform: translateX(-100%);
     opacity: 0;
     transition: 1s;
+    color: var(--font-color);
 }
 
 #contact.show-animation .contact-container h2 {
@@ -28,6 +29,7 @@
     transform: translateX(100%);
     opacity: 0;
     transition: 1s;
+    color: var(--font-color);
 }
 
 #contact.show-animation .contact-container p {
@@ -51,11 +53,12 @@
 }
 
 .contact-container__cards>* {
-    background-color: var(--white-color);
+    background-color: var(--card-bg-primary-color);
+    color: var(--font-color);
     padding: 1.5rem;
     border-radius: var(--border-radius-1);
     transition: var(--transition);
-    border: 2px solid var(--light-color);
+    border: 2px solid var(--bg-primary-color);
     width: 300px;
     cursor: pointer;
     display: flex;
@@ -67,9 +70,13 @@
 
 
 .contact-container__cards>*:hover {
-    background-color: var(--light-color);
-    border-color: var(--white-color);
+    background-color: var(--bg-primary-color);
+    border-color: var(--card-bg-primary-color);
     transform: translateY(-10px);
+}
+
+.contact-container__cards h5 {
+    color: var(--font-color);
 }
 
 .contact-container__cards .cards-icon {
@@ -104,6 +111,7 @@
     transform: translateX(400px);
     opacity: 0;
     transition: transform calc(0.5s * var(--input-field-i)) ease-in-out;
+    background-color: red;
 }
 
 

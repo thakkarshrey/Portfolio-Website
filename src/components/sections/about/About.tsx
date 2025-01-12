@@ -4,24 +4,26 @@ import Button from "../../common/button";
 import { faBuildingColumns, faMedal } from "@fortawesome/free-solid-svg-icons";
 import "./About.css"
 
-type Props = {};
 
 type ExperienceAndEducationCardProps = {
+  id: number
   icon: React.ReactElement
   title: string
   paragraph_01: string
   paragraph_02: string
 }
 
-const About = (props: Props) => {
+const About = () => {
   const experienceData = [
     {
+      id: 1,
       icon: <FontAwesomeIcon icon={faMedal} />,
       title: "Experience",
       paragraph_01: "3.6 years",
       paragraph_02: "Frontend Development"
     },
     {
+      id: 2,
       icon: <FontAwesomeIcon icon={faBuildingColumns} />,
       title: "Education",
       paragraph_01: "Bachelors Degree",
@@ -54,14 +56,11 @@ const About = (props: Props) => {
               <div className="about__cards">
                 {
                   experienceData?.map((element: ExperienceAndEducationCardProps) => {
-                    return <ExperienceAndEducationCard {...element} />
+                    return <ExperienceAndEducationCard key={element.id} {...element} />
                   })
                 }
               </div>
-              {/* <p>Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.</p>
-              <p>I have over 3 years of experience in Frontend Development. I love building responsive web apps and improving user interfaces.</p> */}
               <p>I love building responsive web apps and improving user interfaces.</p>
-              {/* <p>Outside of work, I’m dedicated to maintaining a healthy lifestyle. When I'm not coding, you’ll likely find me at the gym working out or playing and watching football — a great way to balance the focus-driven nature of my coding life with physical activity.</p> */}
               <p>Outside work, I stay active by hitting the gym, playing, or watching football—balancing my coding life with fitness and fun.</p>
               <a
                 href="#contact"

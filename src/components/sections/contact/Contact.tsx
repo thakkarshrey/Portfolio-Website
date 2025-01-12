@@ -86,7 +86,7 @@ const Contact = (props: Props) => {
             <div className="contact-container__cards">
               {
                 cardsData?.map((element) => {
-                  return <Cards {...element} />
+                  return <Cards key={element.id} {...element} />
                 })
               }
             </div>

@@ -56,7 +56,7 @@ const Projects = (props: Props) => {
             {
               projectsArr?.map((project) => {
                 return (
-                  <div className="projects-container__parent-card">
+                  <div key={project.id} className="projects-container__parent-card">
                     <ReactParallaxTilt className="projects-container__card">
                       <div className="projects-container__img-box">
                         <img src={project.image} alt={project.name} />

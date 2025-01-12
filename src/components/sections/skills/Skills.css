@@ -32,6 +32,10 @@
     transition: transform calc(0.3s * var(--i-technologies)) ease-in-out
 }
 
+.skills-container__icon svg.express-icon path {
+    fill: var(--font-color);
+}
+
 #skills.show-animation .skills-container__icon {
     transform: translateX(0);
     opacity: 1;
@@ -42,6 +46,7 @@
     transform: translateX(-100%);
     opacity: 0;
     transition: 1s;
+    color: var(--font-color);
 }
 
 #skills.show-animation .skills-container h2 {
@@ -53,7 +58,9 @@
     transform: translateX(100%);
     opacity: 0;
     transition: 1s;
+    color: var(--font-color);
 }
+
 
 #skills.show-animation .skills-container p {
     transform: translateX(0);

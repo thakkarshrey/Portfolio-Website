@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .header__container {
@@ -58,6 +59,7 @@
   transform: translateX(-100%);
   opacity: 0;
   transition: 1s;
+  color: var(--font-color);
 }
 
 #header.show-animation .header__content .about__about-me-title {

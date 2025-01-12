@@ -8,6 +8,7 @@ import Box from "../box";
 import Button from "../button";
 import useTypewriterEffect from "../../../hooks/useTypewriterEffect";
 import "./Header.css";
+import BackgroundWithCanvas from "../background-with-canvas";
 
 type Props = {};
 
@@ -77,6 +78,7 @@ const Header = (props: Props) => {
                         "--social-media-buttons-i": index,
                       } as React.CSSProperties
                     }
+                    key={element.id}
                   >
                     <a
                       key={element.id}

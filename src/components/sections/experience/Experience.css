@@ -27,12 +27,14 @@
 #experience.show-animation .experience__card-container h2 {
     transform: translateX(0);
     opacity: 1;
+    color: var(--font-color);
 }
 
 .experience__card-container .experience__explore-my-journey {
     transform: translateX(100%);
     opacity: 0;
     transition: 1s;
+    color: var(--font-color);
 }
 
 #experience.show-animation .experience__card-container .experience__explore-my-journey {
@@ -95,7 +97,7 @@
 .timeline .timeline__content-container .timeline__arrow {
     width: 17px;
     height: 17px;
-    background-color: var(--white-color);
+    background-color: var(--card-bg-primary-color);
     transform: rotate(45deg);
     position: absolute;
     left: 16px;
@@ -104,7 +106,7 @@
 
 .timeline .timeline__content-container .timeline__content {
     padding: 1rem;
-    background-color: var(--white-color);
+    background-color: var(--card-bg-primary-color);
     box-shadow: var(--box-shadow-md);
     border-radius: 0.3rem;
     overflow: hidden;
@@ -119,8 +121,17 @@
     align-items: center;
 }
 
+.timeline .timeline__content-container .timeline__content .timeline__company-name-year h4 {
+    color: var(--font-color);
+}
+
 .timeline .timeline__content-container .timeline__content .timeline__company-name-year p {
+    color: var(--font-color);
     font-weight: 500;
+}
+
+.timeline .timeline__content-container .timeline__content>p {
+    color: var(--font-color);
 }
 
 .timeline .timeline__content-container .timeline__content h5 {

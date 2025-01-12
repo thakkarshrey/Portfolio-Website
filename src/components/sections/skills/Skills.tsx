@@ -29,6 +29,7 @@ const Skills = (props: Props) => {
                                 return <div
                                     className='skills-container__icon'
                                     style={{ "--i-technologies": index } as React.CSSProperties}
+                                    key={index}
                                 >
                                     {icon}
                                 </div>

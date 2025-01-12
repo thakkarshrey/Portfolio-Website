@@ -10,6 +10,8 @@ const useCanvasEffect = (): RefObject<HTMLCanvasElement> => {
     if (!ctx) return;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    ctx.fillStyle = "#588dc7";
+    ctx.strokeStyle = "#588dc7";
 
     class Particle {
       effect: Effect;
@@ -25,18 +27,19 @@ const useCanvasEffect = (): RefObject<HTMLCanvasElement> => {
         this.effect = effect;
         this.width = this.effect.width;
         this.height = this.effect.height;
-        this.radius = Math.random() * 12;
+        this.radius = Math.random() * 6;
         this.x = this.radius + Math.random() * (this.width - this.radius * 2);
         this.y = this.radius + Math.random() * (this.height - this.radius * 2);
-        this.velocityx = Math.random() * 1 - 0.5;
-        this.velocityy = Math.random() * 1 - 0.5;
+        this.velocityx = Math.random() * 1 - 1;
+        this.velocityy = Math.random() * 1 - 1;
       }
 
       draw(context: CanvasRenderingContext2D) {
-        context.fillStyle = `hsl(${this.x * 0.5}, 100%, 50%)`;
+        // context.fillStyle = `hsl(${this.x * 0.5}, 100%, 50%)`;
         context.beginPath();
         context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         context.fill();
+        context.stroke();
       }
 
       update() {

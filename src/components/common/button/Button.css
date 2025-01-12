@@ -6,7 +6,7 @@
   justify-content: center;
   display: inline-block;
   gap: 1rem;
-  background-color: var(--light-color);
+  background-color: var(--bg-primary-color);
   color: var(--primary-color);
   padding: 0.6rem 2.5rem;
   border: 2px solid transparent;
@@ -17,7 +17,7 @@
 
 .button:hover {
   background-color: transparent;
-  border-color: var(--light-color);
+  border-color: var(--bg-primary-color);
   transform: translateY(-0.5rem);
 }
 

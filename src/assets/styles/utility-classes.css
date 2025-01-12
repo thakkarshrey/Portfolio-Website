@@ -8,7 +8,7 @@
 }
 
 /* .section:nth-child(odd) {
-  background-color: var(--white-color);
+  background-color: var(--primary-color);
 } */
 
 
@@ -38,7 +38,12 @@
   font-family: var(--default-font-family);
   padding: 1rem;
   outline: none;
-  background: var(--white-color);
+  background: var(--card-bg-primary-color);
+  color: var(--font-color);
+}
+
+.input-field::placeholder {
+  color: var(--font-color);
 }
 
 /* outlined input field */
@@ -65,7 +70,12 @@
   font-family: var(--default-font-family);
   padding: 1rem;
   outline: none;
-  background: var(--white-color);
+  background: var(--card-bg-primary-color);
+  color: var(--font-color);
+}
+
+.text-area::placeholder {
+  color: var(--font-color);
 }
 
 /* outlined input field */
