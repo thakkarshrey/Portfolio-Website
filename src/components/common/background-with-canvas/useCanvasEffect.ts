@@ -10,8 +10,8 @@ const useCanvasEffect = (): RefObject<HTMLCanvasElement> => {
     if (!ctx) return;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    ctx.fillStyle = "#588dc7";
-    ctx.strokeStyle = "#588dc7";
+    ctx.fillStyle = "lightgrey";
+    ctx.strokeStyle = "lightgrey";
 
     class Particle {
       effect: Effect;
@@ -27,7 +27,7 @@ const useCanvasEffect = (): RefObject<HTMLCanvasElement> => {
         this.effect = effect;
         this.width = this.effect.width;
         this.height = this.effect.height;
-        this.radius = Math.random() * 6;
+        this.radius = Math.random() * 5;
         this.x = this.radius + Math.random() * (this.width - this.radius * 2);
         this.y = this.radius + Math.random() * (this.height - this.radius * 2);
         this.velocityx = Math.random() * 1 - 1;
@@ -65,7 +65,7 @@ const useCanvasEffect = (): RefObject<HTMLCanvasElement> => {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.particlesArray = [];
-        this.noOfParticles = 100;
+        this.noOfParticles = 120;
         this.createParticles();
       }
 

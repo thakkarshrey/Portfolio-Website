@@ -189,11 +189,9 @@
     background-size: cover;
     transform: rotateY(180deg);
     transition: border 0.5s;
+    overflow: hidden;
 }
 
-.about__back-image:hover {
-    border-width: 0;
-}
 
 .about__back-image-content {
     position: absolute;
@@ -206,7 +204,7 @@
     border-radius: 0.5rem;
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
     bottom: -9rem;
-    opacity: 0;
+    /* opacity: 0; */
     transition: all 1s;
     padding: 1rem;
     font-size: 14px;
@@ -214,8 +212,23 @@
 
 .about__back-image:hover .about__back-image-content {
     animation: show-card-animation 1s forwards;
-    opacity: 1;
+    /* opacity: 1; */
     transition: all 1s;
+}
+
+.about__back-image:hover {
+    animation: remove-card-overflow 2s forwards;
+    border-width: 0;
+}
+
+@keyframes remove-card-overflow {
+    from {
+        overflow: hidden;
+    }
+
+    to {
+        overflow: initial;
+    }
 }
 
 @keyframes show-card-animation {
@@ -224,7 +237,7 @@
     }
 
     100% {
-        transform: translateY(-7rem);
+        transform: translateY(-6rem);
         z-index: 1;
     }
 }
@@ -233,9 +246,25 @@
     animation: remove-card-animation 1s forwards;
 }
 
+.about__back-image:not(:hover) {
+    animation: add-card-overflow 2s forwards;
+}
+
+
+@keyframes add-card-overflow {
+    0% {
+        overflow: initial;
+        pointer-events: none;
+    }
+
+    50% {
+        overflow: hidden;
+    }
+}
+
 @keyframes remove-card-animation {
     0% {
-        transform: translateY(-7rem);
+        transform: translateY(-6rem);
     }
 
     50% {
