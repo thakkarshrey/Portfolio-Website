@@ -80,16 +80,13 @@ const Header = (props: Props) => {
                     }
                     key={element.id}
                   >
-                    <a
+                    <div
                       key={element.id}
-                      href={element.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="header__social-media-icon"
                     >
                       {element.icon}
-                    </a>
-                    <span>{element.label}</span>
+                    </div>
+                    <a href={element.link} target="_blank" rel="noreferrer">{element.label}</a>
                   </div>
                 );
               })}

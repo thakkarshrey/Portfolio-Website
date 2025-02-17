@@ -61,7 +61,7 @@
     position: absolute;
     inset: 0;
     box-shadow: var(--box-shadow-md);
-    left: 22px;
+    left: 28px;
     z-index: 0;
     transition: height 1s;
     opacity: 0;
@@ -91,7 +91,7 @@
 
 .timeline .timeline__content-container {
     position: relative;
-    padding: 0.2rem 0;
+    padding: 0.8rem 0;
 }
 
 .timeline .timeline__content-container .timeline__arrow {
@@ -100,8 +100,8 @@
     background-color: var(--card-bg-primary-color);
     transform: rotate(45deg);
     position: absolute;
-    left: 16px;
-    top: 0;
+    left: 22px;
+    top: 4px;
 }
 
 .timeline .timeline__content-container .timeline__content {
@@ -144,13 +144,13 @@
     }
 
     .timeline .timeline__content-container {
-        padding-left: 4rem;
+        padding-left: 4.5rem;
         padding-top: 0;
     }
 
     .timeline .timeline__content-container .timeline__arrow {
-        left: 58px;
-        top: 18px;
+        left: 65px;
+        top: 20px;
     }
 
 }
@@ -202,11 +202,13 @@
 
 
     .timeline:nth-child(odd) .timeline__content-container .timeline__arrow {
-        left: 33px;
+        left: 34px;
+        top: 20px;
     }
 
     .timeline:nth-child(even) .timeline__content-container .timeline__arrow {
         left: auto;
-        right: 33px;
+        right: 34px;
+        top: 20px;
     }
 }
