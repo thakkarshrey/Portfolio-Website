@@ -122,3 +122,20 @@
     top: 100px;
     height: 370px;
 }
+
+
+@media screen and (max-width: 1024px) {
+    .projects-container .projects-container__cards-container {
+        gap: 70px 20px;
+    }
+
+    .projects-container .projects-container__card {
+        width: 380px;
+        height: 230px;
+    }
+
+    .projects-container .projects-container__card .projects-container__img-box {
+        width: 330px;
+        height: 150px;
+    }
+}

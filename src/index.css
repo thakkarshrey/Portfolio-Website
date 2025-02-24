@@ -7,9 +7,9 @@ body {
   background: var(--bg-primary-color);
 }
 
-/* html {
+html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
-} */
+}

@@ -36,7 +36,7 @@ const App = (props: Props) => {
         });
       },
       {
-        threshold: 0.5,
+        threshold: [0.1, 0.3],
       }
     );
 

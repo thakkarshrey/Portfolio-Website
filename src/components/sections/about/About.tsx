@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Box from "../../common/box";
 import Button from "../../common/button";
-import { faBuildingColumns, faMedal } from "@fortawesome/free-solid-svg-icons";
+import { faArrowsRotate, faBuildingColumns, faHouse, faMedal } from "@fortawesome/free-solid-svg-icons";
 import "./About.css"
 import { useMediaMatch } from "../../../hooks/useMediaMatch";
+import { forwardRef, SetStateAction, useEffect, useRef, useState } from "react";
 
 
 type ExperienceAndEducationCardProps = {
@@ -33,6 +34,20 @@ const About = () => {
   ];
 
   const isDesktop = useMediaMatch('(max-width:1024px)')
+  const [isFlipped, setIsFlipped] = useState(false)
+  const aboutProfileRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (aboutProfileRef.current) {
+      if (isFlipped) {
+        aboutProfileRef.current?.classList.add('flipped')
+      }
+      else {
+        aboutProfileRef.current?.classList.remove('flipped')
+      }
+    }
+
+  }, [isFlipped])
 
 
   return (
@@ -45,7 +60,7 @@ const About = () => {
           </div>
           {
             isDesktop ?
-              <AboutCardsSmallAndMediumDevices experienceData={experienceData} />
+              <AboutCardsSmallAndMediumDevices experienceData={experienceData} isFlipped={isFlipped} setIsFlipped={setIsFlipped} ref={aboutProfileRef} />
               :
               <AboutCardsForDesktopDevice experienceData={experienceData} />
           }
@@ -72,17 +87,27 @@ function ExperienceAndEducationCard({ icon, title, paragraph_01, paragraph_02 }:
   )
 }
 
+type AboutCardsSmallAndMediumDevicesProps = {
+  experienceData: ExperienceAndEducationCardProps[],
+  isFlipped: boolean,
+  setIsFlipped: React.Dispatch<SetStateAction<boolean>>
+}
 
-function AboutCardsSmallAndMediumDevices({ experienceData }: {
-  experienceData: ExperienceAndEducationCardProps[]
-}) {
+
+const AboutCardsSmallAndMediumDevices = forwardRef<HTMLDivElement, AboutCardsSmallAndMediumDevicesProps>(({ experienceData, isFlipped, setIsFlipped }, ref) => {
   return (
     <div className="about__card">
-      <div className="about__profile">
+      <div ref={ref} className="about__profile">
         <div className="about__front-image">
+          <FontAwesomeIcon icon={faArrowsRotate} style={{ color: 'var(--primary-color)' }} onClick={() => {
+            setIsFlipped((prevValue) => !prevValue)
+          }} />
         </div>
         <div className="about__back-image">
           <div className="about__content">
+            <FontAwesomeIcon icon={faArrowsRotate} style={{ color: 'var(--primary-color)' }} onClick={() => {
+              setIsFlipped((prevValue) => !prevValue)
+            }} />
 
             <div className="about__cards">
               {
@@ -104,7 +129,7 @@ function AboutCardsSmallAndMediumDevices({ experienceData }: {
       </div>
     </div>
   )
-}
+})
 
 
 function AboutCardsForDesktopDevice({ experienceData }: {

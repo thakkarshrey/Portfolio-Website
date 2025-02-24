@@ -294,6 +294,12 @@
         --translateX: 0%;
     }
 
+    .about__front-image {
+        background: url(/public/assets/images/Shrey_Profile_04.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+
     .about__back-image {
         border: none;
         background: none;
@@ -301,6 +307,16 @@
 
     .about__profile {
         transform-origin: unset;
+    }
+
+    /* .about__profile.flipped {
+        transform: rotateY(0deg) !important;
+        transition-delay: 0s !important;
+    } */
+
+    #about.show-animation .about__profile.flipped {
+        transform: rotateY(0deg);
+        transition-delay: 0s;
     }
 
     .about__cards {

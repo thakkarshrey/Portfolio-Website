@@ -7,13 +7,41 @@ type Props = {}
 
 const Skills = (props: Props) => {
     const skillsArr = [
-        <ReactIcon />,
-        <HtmlIcon />,
-        <CSSIcon />,
-        <JavascriptIcon />,
-        <TypescriptIcon />,
-        <NodeIcon />,
-        <ExpressIcon />
+        {
+            icon: <ReactIcon />,
+            title: "React",
+            level: "Experienced"
+        },
+        {
+            icon: <HtmlIcon />,
+            title: "HTML",
+            level: "Experienced"
+        },
+        {
+            icon: <CSSIcon />,
+            title: "CSS",
+            level: "Experienced"
+        },
+        {
+            icon: <JavascriptIcon />,
+            title: "Javascript",
+            level: "Experienced"
+        },
+        {
+            icon: <TypescriptIcon />,
+            title: "Typescript",
+            level: "Intermediate"
+        },
+        {
+            icon: <NodeIcon />,
+            title: "Node JS",
+            level: "Basic"
+        },
+        {
+            icon: <ExpressIcon />,
+            title: "Express",
+            level: "Basic"
+        }
     ]
     return (
         <section id="skills" className="section">
@@ -25,13 +53,17 @@ const Skills = (props: Props) => {
                     </div>
                     <div className="skills-container__icons-container">
                         {
-                            skillsArr?.map((icon, index) => {
+                            skillsArr?.map(({ icon, title, level }, index) => {
                                 return <div
                                     className='skills-container__icon'
                                     style={{ "--i-technologies": index } as React.CSSProperties}
                                     key={index}
                                 >
                                     {icon}
+                                    <div>
+                                        <h5>{title}</h5>
+                                        <p>{level}</p>
+                                    </div>
                                 </div>
 
                             })
