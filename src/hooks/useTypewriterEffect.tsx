@@ -1,47 +1,48 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 const useTypewriterEffect = (words: string[], delay = 100) => {
-  const [text, setText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [wordIndex, setWordIndex] = useState(0);
+  const [text, setText] = useState('')
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [wordIndex, setWordIndex] = useState(0)
 
   useEffect(() => {
-    const currentWord = words[wordIndex] || "";
-    let typingTimeout: any = null;
-    let deletingTimeout: any = null;
+    const currentWord = words[wordIndex] || ''
+    let typingTimeout: ReturnType<typeof setTimeout>
+    let deletingTimeout: ReturnType<typeof setTimeout>
 
     if (isDeleting) {
       deletingTimeout = setTimeout(() => {
-        setText(currentWord.substring(0, text.length - 1));
-        if (text === "") {
+        setText(currentWord.substring(0, text.length - 1))
+        if (text === '') {
           setWordIndex((prevValue) => {
             if (prevValue === words.length - 1) {
-              return 0;
+              return 0
             } else {
-              return prevValue + 1;
+              return prevValue + 1
             }
-          });
-          setIsDeleting(false);
+          })
+          setIsDeleting(false)
         }
-      }, delay);
+      }, delay)
     } else {
       typingTimeout = setTimeout(() => {
-        setText(currentWord.substring(0, text.length + 1));
+        setText(currentWord.substring(0, text.length + 1))
         if (currentWord === text) {
           setTimeout(() => {
-            setIsDeleting(true);
-          }, 2000);
+            setIsDeleting(true)
+          }, 2000)
         }
-      }, delay);
+      }, delay)
     }
 
     return () => {
-      clearTimeout(typingTimeout);
-      clearTimeout(deletingTimeout);
-    };
-  }, [text, isDeleting, wordIndex]);
+      clearTimeout(typingTimeout)
+      clearTimeout(deletingTimeout)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text, isDeleting, wordIndex])
 
-  return text;
-};
+  return text
+}
 
-export default useTypewriterEffect;
+export default useTypewriterEffect

@@ -1,2 +1,2 @@
-import FloatingNavbar from "./FloatingNavbar";
-export default FloatingNavbar;
+import FloatingNavbar from './FloatingNavbar'
+export default FloatingNavbar

@@ -1,155 +1,148 @@
 #contact {
-    padding: 2rem 0;
+  padding: 2rem 0;
 }
 
 .contact-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    gap: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 3rem;
 }
 
-
 .contact-container h2 {
-    margin-bottom: 1rem;
-    transform: translateX(-100%);
-    opacity: 0;
-    transition: 1s;
-    color: var(--font-color);
+  margin-bottom: 1rem;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: 1s;
+  color: var(--font-color);
 }
 
 #contact.show-animation .contact-container h2 {
-    transform: translateX(0);
-    opacity: 1;
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .contact-container p {
-    transform: translateX(100%);
-    opacity: 0;
-    transition: 1s;
-    color: var(--font-color);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: 1s;
+  color: var(--font-color);
 }
 
 #contact.show-animation .contact-container p {
-    transform: translateX(0);
-    opacity: 1;
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .contact-container__content {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
-
 
 .contact-container__cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem;
-    flex: 1.3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1.3;
 }
 
-.contact-container__cards>* {
-    background-color: var(--card-bg-primary-color);
-    color: var(--font-color);
-    padding: 1.5rem;
-    border-radius: var(--border-radius-1);
-    transition: var(--transition);
-    border: 2px solid var(--bg-primary-color);
-    width: 300px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+.contact-container__cards > * {
+  background-color: var(--card-bg-primary-color);
+  color: var(--font-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-1);
+  transition: var(--transition);
+  border: 2px solid var(--bg-primary-color);
+  width: 300px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-
-.contact-container__cards>*:hover {
-    background-color: var(--bg-primary-color);
-    border-color: var(--card-bg-primary-color);
-    transform: translateY(-10px);
+.contact-container__cards > *:hover {
+  background-color: var(--bg-primary-color);
+  border-color: var(--card-bg-primary-color);
+  transform: translateY(-10px);
 }
 
 .contact-container__cards h5 {
-    color: var(--font-color);
+  color: var(--font-color);
 }
 
 .contact-container__cards .cards-icon {
-    padding: 0.4rem 0.8rem;
-    font-size: 1.3rem;
-    width: fit-content;
-    border-radius: 0.5rem;
-    transition: var(--transition);
+  padding: 0.4rem 0.8rem;
+  font-size: 1.3rem;
+  width: fit-content;
+  border-radius: 0.5rem;
+  transition: var(--transition);
 }
 
-.contact-container__cards>*:hover .cards-icon {
-    background: var(--primary-color);
-    color: var(--white-color);
+.contact-container__cards > *:hover .cards-icon {
+  background: var(--primary-color);
+  color: var(--white-color);
 }
 
 .contact-container__cards a {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
-
 .contact-container__form {
-    flex: 2;
+  flex: 2;
 }
 
 .contact-container__form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .input-field {
-    transform: translateX(400px);
-    opacity: 0;
-    transition: transform calc(0.5s * var(--input-field-i)) ease-in-out;
-    background-color: red;
+  transform: translateX(400px);
+  opacity: 0;
+  transition: transform calc(0.5s * var(--input-field-i)) ease-in-out;
+  background-color: red;
 }
 
-
 #contact.show-animation .input-field {
-    transform: translateX(0);
-    opacity: 1;
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .text-area {
-    transform: translateX(400px);
-    opacity: 0;
-    transition: transform calc(0.5s * var(--input-field-i)) ease-in-out;
+  transform: translateX(400px);
+  opacity: 0;
+  transition: transform calc(0.5s * var(--input-field-i)) ease-in-out;
 }
 
-
 #contact.show-animation .text-area {
-    transform: translateX(0);
-    opacity: 1;
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .contact-container__card {
-    transform: translateX(-400px);
-    opacity: 0;
-    transition: transform calc(0.5s * var(--contact-cards-i)) ease-in-out;
+  transform: translateX(-400px);
+  opacity: 0;
+  transition: transform calc(0.5s * var(--contact-cards-i)) ease-in-out;
 }
-
 
 #contact.show-animation .contact-container__card {
-    transform: translateX(0);
-    opacity: 1;
+  transform: translateX(0);
+  opacity: 1;
 }
 
-
 @media screen and (max-width: 768px) {
-    .contact-container__content {
-        flex-direction: column;
-        gap: 1rem;
-    }
+  .contact-container__content {
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-    .contact-container__form {}
+  .contact-container__form {
+  }
 }

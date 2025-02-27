@@ -1,11 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Box from "../../common/box";
-import Button from "../../common/button";
-import { faArrowsRotate, faBuildingColumns, faHouse, faMedal } from "@fortawesome/free-solid-svg-icons";
-import "./About.css"
-import { useMediaMatch } from "../../../hooks/useMediaMatch";
-import { forwardRef, SetStateAction, useEffect, useRef, useState } from "react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Box from '../../common/box'
+import Button from '../../common/button'
+import { faArrowsRotate, faBuildingColumns, faMedal } from '@fortawesome/free-solid-svg-icons'
+import { useMediaMatch } from '../../../hooks/useMediaMatch'
+import { forwardRef, SetStateAction, useEffect, useRef, useState } from 'react'
+import './About.css'
 
 type ExperienceAndEducationCardProps = {
   id: number
@@ -20,18 +19,18 @@ const About = () => {
     {
       id: 1,
       icon: <FontAwesomeIcon icon={faMedal} />,
-      title: "Experience",
-      paragraph_01: "3.6 years",
-      paragraph_02: "Frontend Development"
+      title: 'Experience',
+      paragraph_01: '3.6 years',
+      paragraph_02: 'Frontend Development'
     },
     {
       id: 2,
       icon: <FontAwesomeIcon icon={faBuildingColumns} />,
-      title: "Education",
-      paragraph_01: "Bachelors Degree",
-      paragraph_02: "Electrical Engineer"
+      title: 'Education',
+      paragraph_01: 'Bachelors Degree',
+      paragraph_02: 'Electrical Engineer'
     }
-  ];
+  ]
 
   const isDesktop = useMediaMatch('(max-width:1024px)')
   const [isFlipped, setIsFlipped] = useState(false)
@@ -41,14 +40,11 @@ const About = () => {
     if (aboutProfileRef.current) {
       if (isFlipped) {
         aboutProfileRef.current?.classList.add('flipped')
-      }
-      else {
+      } else {
         aboutProfileRef.current?.classList.remove('flipped')
       }
     }
-
   }, [isFlipped])
-
 
   return (
     <section id="about" className="section">
@@ -58,72 +54,87 @@ const About = () => {
             <p className="about__get-to-know-title">Get to know</p>
             <h2 className="about__about-me-title">About me</h2>
           </div>
-          {
-            isDesktop ?
-              <AboutCardsSmallAndMediumDevices experienceData={experienceData} isFlipped={isFlipped} setIsFlipped={setIsFlipped} ref={aboutProfileRef} />
-              :
-              <AboutCardsForDesktopDevice experienceData={experienceData} />
-          }
+          {isDesktop ? (
+            <AboutCardsSmallAndMediumDevices
+              experienceData={experienceData}
+              isFlipped={isFlipped}
+              setIsFlipped={setIsFlipped}
+              ref={aboutProfileRef}
+            />
+          ) : (
+            <AboutCardsForDesktopDevice experienceData={experienceData} />
+          )}
         </div>
       </Box>
     </section>
-  );
-};
+  )
+}
 
-
-function ExperienceAndEducationCard({ icon, title, paragraph_01, paragraph_02 }: ExperienceAndEducationCardProps) {
+function ExperienceAndEducationCard({
+  icon,
+  title,
+  paragraph_01,
+  paragraph_02
+}: ExperienceAndEducationCardProps) {
   return (
     <div>
       <div className="about__cards-icon-container">
-        <span className="about__cards-icon">
-          {icon}
-        </span>
-        <h5>
-          {title}
-        </h5>
+        <span className="about__cards-icon">{icon}</span>
+        <h5>{title}</h5>
       </div>
-      <small>{paragraph_01} <br />{paragraph_02}</small>
+      <small>
+        {paragraph_01} <br />
+        {paragraph_02}
+      </small>
     </div>
   )
 }
 
 type AboutCardsSmallAndMediumDevicesProps = {
-  experienceData: ExperienceAndEducationCardProps[],
-  isFlipped: boolean,
+  experienceData: ExperienceAndEducationCardProps[]
+  isFlipped: boolean
   setIsFlipped: React.Dispatch<SetStateAction<boolean>>
 }
 
-
-const AboutCardsSmallAndMediumDevices = forwardRef<HTMLDivElement, AboutCardsSmallAndMediumDevicesProps>(({ experienceData, isFlipped, setIsFlipped }, ref) => {
+const AboutCardsSmallAndMediumDevices = forwardRef<
+  HTMLDivElement,
+  AboutCardsSmallAndMediumDevicesProps
+>(({ experienceData, setIsFlipped }, ref) => {
   return (
     <div className="about__card">
       <div ref={ref} className="about__profile">
         <div className="about__front-image">
-          <FontAwesomeIcon icon={faArrowsRotate} style={{ color: 'var(--primary-color)' }} onClick={() => {
-            setIsFlipped((prevValue) => !prevValue)
-          }} />
+          <FontAwesomeIcon
+            icon={faArrowsRotate}
+            style={{ color: 'var(--primary-color)' }}
+            onClick={() => {
+              setIsFlipped((prevValue) => !prevValue)
+            }}
+          />
         </div>
         <div className="about__back-image">
           <div className="about__content">
-            <FontAwesomeIcon icon={faArrowsRotate} style={{ color: 'var(--primary-color)' }} onClick={() => {
-              setIsFlipped((prevValue) => !prevValue)
-            }} />
+            <FontAwesomeIcon
+              icon={faArrowsRotate}
+              style={{ color: 'var(--primary-color)' }}
+              onClick={() => {
+                setIsFlipped((prevValue) => !prevValue)
+              }}
+            />
 
             <div className="about__cards">
-              {
-                experienceData?.map((element: ExperienceAndEducationCardProps) => {
-                  return <ExperienceAndEducationCard key={element.id} {...element} />
-                })
-              }
+              {experienceData?.map((element: ExperienceAndEducationCardProps) => {
+                return <ExperienceAndEducationCard key={element.id} {...element} />
+              })}
             </div>
             <p>I love building responsive web apps and improving user interfaces.</p>
-            <p>Outside work, I stay active by hitting the gym, playing, or watching football—balancing my coding life with fitness and fun.</p>
-            <a
-              href="#contact"
-            >
+            <p>
+              Outside work, I stay active by hitting the gym, playing, or watching
+              football—balancing my coding life with fitness and fun.
+            </p>
+            <a href="#contact">
               <Button variant="primary">Download CV</Button>
             </a>
-
           </div>
         </div>
       </div>
@@ -131,15 +142,15 @@ const AboutCardsSmallAndMediumDevices = forwardRef<HTMLDivElement, AboutCardsSma
   )
 })
 
-
-function AboutCardsForDesktopDevice({ experienceData }: {
+function AboutCardsForDesktopDevice({
+  experienceData
+}: {
   experienceData: ExperienceAndEducationCardProps[]
 }) {
   return (
     <div className="about__card">
       <div className="about__profile">
-        <div className="about__front-image">
-        </div>
+        <div className="about__front-image"></div>
         <div className="about__back-image">
           <div className="about__back-image-content">
             <p>Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.</p>
@@ -148,25 +159,22 @@ function AboutCardsForDesktopDevice({ experienceData }: {
         </div>
       </div>
       <div className="about__content">
-
         <div className="about__cards">
-          {
-            experienceData?.map((element: ExperienceAndEducationCardProps) => {
-              return <ExperienceAndEducationCard key={element.id} {...element} />
-            })
-          }
+          {experienceData?.map((element: ExperienceAndEducationCardProps) => {
+            return <ExperienceAndEducationCard key={element.id} {...element} />
+          })}
         </div>
         <p>I love building responsive web apps and improving user interfaces.</p>
-        <p>Outside work, I stay active by hitting the gym, playing, or watching football—balancing my coding life with fitness and fun.</p>
-        <a
-          href="#contact"
-        >
+        <p>
+          Outside work, I stay active by hitting the gym, playing, or watching football—balancing my
+          coding life with fitness and fun.
+        </p>
+        <a href="#contact">
           <Button variant="primary">Download CV</Button>
         </a>
-
       </div>
     </div>
   )
 }
 
-export default About;
+export default About

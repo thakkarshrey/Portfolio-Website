@@ -1,73 +1,70 @@
 #skills {
-    padding: 10rem 0;
+  padding: 10rem 0;
 }
 
 .skills-container {
-    text-align: center;
+  text-align: center;
 }
 
 .skills-container__icons-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
 }
 
 .skills-container__icon {
-    background-color: var(--white-color);
-    width: 200px;
-    padding: 0.5rem;
-    border-radius: 8px;
-    margin: auto;
-    transform: translateX(400px);
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    text-align: start;
-    justify-content: space-around;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    transform-style: preserve-3d;
-    transition: transform calc(0.3s * var(--i-technologies)) ease-in-out
+  background-color: var(--white-color);
+  width: 200px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  margin: auto;
+  transform: translateX(400px);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  text-align: start;
+  justify-content: space-around;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  transition: transform calc(0.3s * var(--i-technologies)) ease-in-out;
 }
 
 .skills-container__icon svg.express-icon path {
-    fill: var(--font-color);
+  fill: var(--font-color);
 }
 
 #skills.show-animation .skills-container__icon {
-    transform: translateX(0);
-    opacity: 1;
+  transform: translateX(0);
+  opacity: 1;
 }
 
-
 .skills-container h2 {
-    transform: translateX(-100%);
-    opacity: 0;
-    transition: 1s;
-    color: var(--font-color);
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: 1s;
+  color: var(--font-color);
 }
 
 #skills.show-animation .skills-container h2 {
-    transform: translateX(0);
-    opacity: 1;
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .skills-container p {
-    transform: translateX(100%);
-    opacity: 0;
-    transition: 1s;
-    color: var(--font-color);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: 1s;
+  color: var(--font-color);
 }
-
 
 #skills.show-animation .skills-container p {
-    transform: translateX(0);
-    opacity: 1;
+  transform: translateX(0);
+  opacity: 1;
 }
 
-
 @media screen and (max-width: 1024px) {
-    .skills-container__icons-container {
-        flex-direction: column;
-    }
+  .skills-container__icons-container {
+    flex-direction: column;
+  }
 }

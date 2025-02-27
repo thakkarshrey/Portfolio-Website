@@ -42,7 +42,7 @@
   list-style: none;
 }
 
-.navbar__list-item>a {
+.navbar__list-item > a {
   height: 2.5rem;
   /* height: 3rem; */
   display: flex;
@@ -66,7 +66,7 @@
   border-radius: 2rem;
 }
 
-.navbar--active-tab>a {
+.navbar--active-tab > a {
   color: var(--white-color);
 }
 

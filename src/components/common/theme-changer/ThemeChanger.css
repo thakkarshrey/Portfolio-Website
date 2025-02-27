@@ -1,167 +1,182 @@
 .theme-changer {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0;
-    height: 0;
-    transition: width 2.5s 2.5s, height 2.5s 2.5s, backdrop-filter 1s 2.5s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  transition:
+    width 2.5s 2.5s,
+    height 2.5s 2.5s,
+    backdrop-filter 1s 2.5s;
 }
 
 .theme-changer.active {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    backdrop-filter: blur(10px);
-    transition: width 2.5s, height 2.5s, backdrop-filter 1s 2.5s;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  transition:
+    width 2.5s,
+    height 2.5s,
+    backdrop-filter 1s 2.5s;
 }
 
 .theme-changer__menu {
-    width: 260px;
-    height: 260px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 3s;
-    position: absolute;
-    top: -95px;
-    right: -90px;
-    transform: translate(0, 0) rotate(0deg);
-    transform-origin: center;
-    transition-delay: 1.5s;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 3s;
+  position: absolute;
+  top: -95px;
+  right: -90px;
+  transform: translate(0, 0) rotate(0deg);
+  transform-origin: center;
+  transition-delay: 1.5s;
 }
-
-
 
 .theme-changer__menu.active {
-    top: calc(50% - 90px);
-    /* Adjust for height of 260px */
-    right: calc(50% - 90px);
-    /* Adjust for width of 260px */
-    transform: translate(calc(-50% + 180px), calc(-50% + 90px)) rotate(calc(-360deg * 5));
-    transform-origin: center;
-    transition-delay: 0s;
+  top: calc(50% - 90px);
+  /* Adjust for height of 260px */
+  right: calc(50% - 90px);
+  /* Adjust for width of 260px */
+  transform: translate(calc(-50% + 180px), calc(-50% + 90px)) rotate(calc(-360deg * 5));
+  transform-origin: center;
+  transition-delay: 0s;
 }
-
-
 
 .theme-changer__menu li {
-    position: absolute;
-    left: 0;
-    list-style: none;
-    transition: 1s;
-    transform-origin: 130px;
-    transition-delay: calc(0.1s * var(--i) + 0s);
-    transform: rotate(0deg) translateX(100px);
+  position: absolute;
+  left: 0;
+  list-style: none;
+  transition: 1s;
+  transform-origin: 130px;
+  transition-delay: calc(0.1s * var(--i) + 0s);
+  transform: rotate(0deg) translateX(100px);
 }
 
-
-
 .theme-changer__menu.active li {
-    /* Adding 3s delay */
-    transition-delay: calc(0.1s * var(--i) + 2.5s);
-    transform: rotate(calc(360deg / 8 * var(--i)));
+  /* Adding 3s delay */
+  transition-delay: calc(0.1s * var(--i) + 2.5s);
+  transform: rotate(calc(360deg / 8 * var(--i)));
 }
 
 .theme-changer__menu li a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
-    font-size: 1.5rem;
-    border-radius: 50%;
-    transform: rotate(calc(360deg / -8 * var(--i)));
-    transition: 1s;
-    color: transparent;
-    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  transform: rotate(calc(360deg / -8 * var(--i)));
+  transition: 1s;
+  color: transparent;
+  position: relative;
 }
 
 .theme-changer__menu.active li a {
-    /* Adding 3.5s delay */
-    transition-delay: 3s;
-    color: var(--color);
+  /* Adding 3.5s delay */
+  transition-delay: 3s;
+  color: var(--color);
 }
 
 .theme-changer__menu li a::before {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 2px;
-    border-radius: 2px;
-    background: var(--color);
-    transform: rotate(calc(var(--i) * 90deg)) translate(0, 25px);
-    transition: height 0.5s, width 0.5s, transform 0.5s;
-    transition-delay: 0s, 0s, 0s;
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color);
+  transform: rotate(calc(var(--i) * 90deg)) translate(0, 25px);
+  transition:
+    height 0.5s,
+    width 0.5s,
+    transform 0.5s;
+  transition-delay: 0s, 0s, 0s;
 }
 
-
 .theme-changer__menu.active li a::before {
-    width: 60px;
-    height: 60px;
-    background: #fff;
-    border: 2px solid var(--color);
-    box-sizing: border-box;
-    rotate: 135deg;
-    transform: rotate(calc(var(--i) * 90deg)) translate(0px, 0px);
-    transition: height 0.5s, width 0.5s, transform 0.5s;
-    transition-delay: 4s, 4s, 4s;
-    /* Add 3s + 1.5s = 4.5s delay for smooth start */
+  width: 60px;
+  height: 60px;
+  background: #fff;
+  border: 2px solid var(--color);
+  box-sizing: border-box;
+  rotate: 135deg;
+  transform: rotate(calc(var(--i) * 90deg)) translate(0px, 0px);
+  transition:
+    height 0.5s,
+    width 0.5s,
+    transform 0.5s;
+  transition-delay: 4s, 4s, 4s;
+  /* Add 3s + 1.5s = 4.5s delay for smooth start */
 }
 
 .theme-changer__menu.active li:hover a::before {
-    background-color: var(--color);
-    color: #2f363e;
-    box-shadow: 0 0 10px var(--color), 0 0 30px var(--color), 0 0 50px var(--color);
+  background-color: var(--color);
+  color: #2f363e;
+  box-shadow:
+    0 0 10px var(--color),
+    0 0 30px var(--color),
+    0 0 50px var(--color);
 }
 
-.theme-changer__menu.active li a>* {
-    z-index: 2;
+.theme-changer__menu.active li a > * {
+  z-index: 2;
 }
 
-.theme-changer__menu.active li:hover a>* {
-    position: relative;
-    color: #2f363e;
+.theme-changer__menu.active li:hover a > * {
+  position: relative;
+  color: #2f363e;
 }
-
 
 .theme-changer__menu li a::after {
-    content: "";
-    position: absolute;
-    left: 50px;
-    width: 20px;
-    height: 2px;
-    background-color: var(--color);
-    z-index: -1;
-    visibility: hidden;
-    transform: rotate(calc(var(--i) * 0deg)) translate(15px, 0px);
-    transition: left 0.5s 0s, width 0.5s 0s, transform 0.5s 0s, visibility 0.5s 2.5s;
+  content: '';
+  position: absolute;
+  left: 50px;
+  width: 20px;
+  height: 2px;
+  background-color: var(--color);
+  z-index: -1;
+  visibility: hidden;
+  transform: rotate(calc(var(--i) * 0deg)) translate(15px, 0px);
+  transition:
+    left 0.5s 0s,
+    width 0.5s 0s,
+    transform 0.5s 0s,
+    visibility 0.5s 2.5s;
 }
 
 .theme-changer__menu.active li a::after {
-    left: 10px;
-    width: 40px;
-    visibility: visible;
-    transform: rotate(calc(var(--i) * 45deg)) translate(50px, 0px);
-    /* Delay the left and width change by 3.5 seconds */
-    transition: left 0.5s 3s, width 0.5s 3s, transform 0.5s 3s, visibility 0.5s 0.5s;
+  left: 10px;
+  width: 40px;
+  visibility: visible;
+  transform: rotate(calc(var(--i) * 45deg)) translate(50px, 0px);
+  /* Delay the left and width change by 3.5 seconds */
+  transition:
+    left 0.5s 3s,
+    width 0.5s 3s,
+    transform 0.5s 3s,
+    visibility 0.5s 0.5s;
 }
 
 .theme-changer__toggle {
-    color: black;
-    font-size: 1.3rem;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: transform 1.5s;
-    z-index: 100;
-    cursor: pointer;
-    position: absolute;
+  color: black;
+  font-size: 1.3rem;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: transform 1.5s;
+  z-index: 100;
+  cursor: pointer;
+  position: absolute;
 }
 
 .theme-changer__menu.active .theme-changer__toggle {
-    transition-delay: 2.5s;
-    transform: rotate(315deg);
+  transition-delay: 2.5s;
+  transform: rotate(315deg);
 }

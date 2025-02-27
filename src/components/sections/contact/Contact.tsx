@@ -1,24 +1,22 @@
-import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
-import { faVoicemail } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Box from '../../common/box';
-import Button from '../../common/button';
-import { useState } from 'react';
-import './Contact.css';
-
-type Props = {};
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faVoicemail } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Box from '../../common/box'
+import Button from '../../common/button'
+import { useState } from 'react'
+import './Contact.css'
 
 type CardProps = {
-  id: number;
-  icon: React.ReactElement;
-  title: string;
-  paragraph_01: string;
-  paragraph_02: string;
-};
+  id: number
+  icon: React.ReactElement
+  title: string
+  paragraph_01: string
+  paragraph_02: string
+}
 
-const Contact = (props: Props) => {
+const Contact = () => {
   /* loading dependencies */
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
   /* loading dependencies */
 
   const cardsData = [
@@ -27,48 +25,48 @@ const Contact = (props: Props) => {
       icon: <FontAwesomeIcon icon={faVoicemail} />,
       title: 'Email',
       paragraph_01: 'thakkarshrey10.st@gmail.com',
-      paragraph_02: '',
+      paragraph_02: ''
     },
     {
       id: 2,
       icon: <FontAwesomeIcon icon={faWhatsapp} />,
       title: 'Whatsapp',
       paragraph_01: '+91-9712303054',
-      paragraph_02: '',
-    },
-  ];
+      paragraph_02: ''
+    }
+  ]
 
   /* on submit handler */
-  const onSubmit = async (event: any) => {
-    event.preventDefault();
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
 
     try {
-      setLoading(true);
-      const form = event.target;
-      const formData = new FormData(form);
+      setLoading(true)
+      const form = event.target as HTMLFormElement
+      const formData = new FormData(form)
 
-      formData.append('access_key', `${import.meta.env.VITE_FORM_ACCESS_KEY}`);
+      formData.append('access_key', `${import.meta.env.VITE_FORM_ACCESS_KEY}`)
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        body: formData,
-      });
+        body: formData
+      })
 
-      const data = await response.json();
+      const data = await response.json()
 
       if (data.success) {
-        setLoading(false);
-        form.reset();
+        setLoading(false)
+        form.reset()
       } else {
-        console.log('Error', data);
+        console.log('Error', data)
       }
     } catch (error) {
-      setLoading(false);
-      console.log(error, 'error');
+      setLoading(false)
+      console.log(error, 'error')
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <section id="contact" className="section">
@@ -81,7 +79,7 @@ const Contact = (props: Props) => {
           <div className="contact-container__content">
             <div className="contact-container__cards">
               {cardsData?.map((element) => {
-                return <Cards key={element.id} {...element} />;
+                return <Cards key={element.id} {...element} />
               })}
             </div>
             <div className="contact-container__form">
@@ -124,11 +122,11 @@ const Contact = (props: Props) => {
         </div>
       </Box>
     </section>
-  );
-};
+  )
+}
 
 function Cards({ id, icon, title, paragraph_01, paragraph_02 }: CardProps) {
-  const email = 'thakkarshrey10.st@gmail.com';
+  const email = 'thakkarshrey10.st@gmail.com'
   return (
     <div
       style={{ '--contact-cards-i': id } as React.CSSProperties}
@@ -162,7 +160,7 @@ function Cards({ id, icon, title, paragraph_01, paragraph_02 }: CardProps) {
         </a>
       )}
     </div>
-  );
+  )
 }
 
-export default Contact;
+export default Contact
