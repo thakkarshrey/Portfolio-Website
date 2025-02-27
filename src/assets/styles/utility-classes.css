@@ -11,24 +11,20 @@
   background-color: var(--primary-color);
 } */
 
-
-.section>h2 {
+.section > h2 {
   text-align: center;
 }
 
-.section>p {
+.section > p {
   text-align: center;
 }
 
 @media screen and (max-width: 1024px) {
-
-  .section>p {
+  .section > p {
     width: var(--container-width-md);
     margin-bottom: 3rem;
   }
 }
-
-
 
 /* INPUT FIELD UTILITY CLASSES */
 .input-field {
@@ -55,11 +51,7 @@
 .input-field-outlined:focus {
   outline: none;
   border: 1px solid var(--primary-color);
-
 }
-
-
-
 
 /* TEXT AREA UTILITY CLASSES */
 

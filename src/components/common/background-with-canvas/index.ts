@@ -1,2 +1,2 @@
-import BackgroundWithCanvas from "./BackgroundWithCanvas";
-export default BackgroundWithCanvas;
+import BackgroundWithCanvas from './BackgroundWithCanvas'
+export default BackgroundWithCanvas

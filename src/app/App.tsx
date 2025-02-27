@@ -1,64 +1,58 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import Header from "../components/common/header";
-import About from "../components/sections/about";
-import Projects from "../components/sections/projects";
-import Contact from "../components/sections/contact";
-import Footer from "../components/common/footer";
-import Skills from "../components/sections/skills";
-import FloatingNavbar from "../components/common/floating-navbar";
-import Experience from "../components/sections/experience";
-import BackgroundWithCanvas from "../components/common/background-with-canvas";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./App.css";
-import { faMoon, faSun } from "@fortawesome/free-regular-svg-icons";
+import { useEffect, useRef, useState } from 'react'
+import Header from '../components/common/header'
+import About from '../components/sections/about'
+import Projects from '../components/sections/projects'
+import Contact from '../components/sections/contact'
+import Footer from '../components/common/footer'
+import Skills from '../components/sections/skills'
+import FloatingNavbar from '../components/common/floating-navbar'
+import Experience from '../components/sections/experience'
+import BackgroundWithCanvas from '../components/common/background-with-canvas'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons'
+import './App.css'
 
-type Props = {};
-
-const App = (props: Props) => {
-  const inputRef = useRef<HTMLInputElement | null>(null);
-  const [selectedTheme, setSelectedTheme] = useState(
-    localStorage.getItem("mode") || "light"
-  );
+const App = () => {
+  const inputRef = useRef<HTMLInputElement | null>(null)
+  const [selectedTheme, setSelectedTheme] = useState(localStorage.getItem('mode') || 'light')
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section");
+    const sections = document.querySelectorAll('section')
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (!entry.target.classList.contains("show-animation")) {
-              entry.target.classList.add("show-animation");
+            if (!entry.target.classList.contains('show-animation')) {
+              entry.target.classList.add('show-animation')
             }
           } else {
-            entry.target.classList.remove("show-animation");
+            entry.target.classList.remove('show-animation')
           }
-        });
+        })
       },
       {
-        threshold: [0.1, 0.3],
+        threshold: [0.1, 0.3]
       }
-    );
+    )
 
     sections.forEach((section) => {
-      observer.observe(section);
-    });
+      observer.observe(section)
+    })
 
     return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
-  }, []);
-
-
+      sections.forEach((section) => observer.unobserve(section))
+    }
+  }, [])
 
   useEffect(() => {
-    localStorage.setItem("mode", selectedTheme);
-    document.documentElement.setAttribute("data-theme", selectedTheme);
+    localStorage.setItem('mode', selectedTheme)
+    document.documentElement.setAttribute('data-theme', selectedTheme)
 
     if (inputRef.current) {
-      inputRef.current.checked = selectedTheme === "dark";
+      inputRef.current.checked = selectedTheme === 'dark'
     }
-  }, [selectedTheme]);
+  }, [selectedTheme])
 
   return (
     <BackgroundWithCanvas>
@@ -67,9 +61,7 @@ const App = (props: Props) => {
           ref={inputRef}
           type="checkbox"
           id="toggle-container_btn"
-          onChange={() =>
-            setSelectedTheme(selectedTheme === "light" ? "dark" : "light")
-          }
+          onChange={() => setSelectedTheme(selectedTheme === 'light' ? 'dark' : 'light')}
         />
         <label htmlFor="toggle-container_btn" className="toggle-container_label">
           <div className="toggle-container_label-sun">
@@ -89,12 +81,10 @@ const App = (props: Props) => {
       <Contact />
       <Footer />
     </BackgroundWithCanvas>
-  );
-};
+  )
+}
 
-export default App;
-
-
+export default App
 
 // import { useEffect } from "react";
 // import Header from "../components/common/header";
@@ -144,6 +134,5 @@ export default App;
 //     </div>
 //   );
 // };
-
 
 // export default App;

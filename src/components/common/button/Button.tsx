@@ -1,10 +1,10 @@
-import "./Button.css";
+import './Button.css'
 
 type Props = {
-  children: React.ReactNode;
-  variant?: "primary" | "secondary";
-  size?: "small";
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+  children: React.ReactNode
+  variant?: 'primary' | 'secondary'
+  size?: 'small'
+} & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const Button = ({ children, variant, size, ...props }: Props) => {
   return (
@@ -17,7 +17,7 @@ const Button = ({ children, variant, size, ...props }: Props) => {
     >
       {children}
     </button>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

@@ -1,164 +1,209 @@
 #floating-navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    background-color: rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 50%;
-    transform: translate(0, -50%);
-    left: 2rem;
-    border-radius: 10px;
-    padding-block: 2rem;
-    z-index: 12;
-    backdrop-filter: blur(15px);
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 2rem;
+  border-radius: 10px;
+  padding-block: 2rem;
+  z-index: 12;
+  backdrop-filter: blur(15px);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 #floating-navbar .floating-navbar__menu {
-    position: relative;
-    display: flex;
-    flex-direction: column;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 #floating-navbar .floating-navbar__menu .floating-navbar__list-item {
-    list-style: none;
-    width: 60px;
-    height: 60px;
-    z-index: 1;
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
 }
 
 #floating-navbar .floating-navbar__menu .floating-navbar__list-item a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    width: 100%;
-    font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  font-weight: 500;
 }
 
 #floating-navbar .floating-navbar__menu .floating-navbar__list-item a .floating-navbar__icon {
-    line-height: 60px;
-    display: block;
-    position: relative;
-    font-size: 1.2rem;
-    transition: all 0.5s;
+  line-height: 60px;
+  display: block;
+  position: relative;
+  font-size: 1.2rem;
+  transition: all 0.5s;
 }
 
-#floating-navbar .floating-navbar__menu .floating-navbar__list-item.floating-navbar--active-tab a .floating-navbar__icon {
-    transform: translateX(30px);
+#floating-navbar
+  .floating-navbar__menu
+  .floating-navbar__list-item.floating-navbar--active-tab
+  a
+  .floating-navbar__icon {
+  transform: translateX(30px);
 }
 
 #floating-navbar .floating-navbar__menu .floating-navbar__list-item a .floating-navbar__text {
-    position: absolute;
-    font-size: 0.70rem;
-    color: var(--primary-color);
-    letter-spacing: 0.05rem;
-    transition: all 0.5s;
-    opacity: 0;
-    transform: translate(-20px, 0);
+  position: absolute;
+  font-size: 0.7rem;
+  color: var(--primary-color);
+  letter-spacing: 0.05rem;
+  transition: all 0.5s;
+  opacity: 0;
+  transform: translate(-20px, 0);
 }
 
-#floating-navbar .floating-navbar__menu .floating-navbar__list-item.floating-navbar--active-tab a .floating-navbar__text {
-    transform: translate(90px, 0);
-    opacity: 1;
+#floating-navbar
+  .floating-navbar__menu
+  .floating-navbar__list-item.floating-navbar--active-tab
+  a
+  .floating-navbar__text {
+  transform: translate(90px, 0);
+  opacity: 1;
 }
 
 .floating-navbar__indicator {
-    width: 60px;
-    height: 60px;
-    background-color: var(--primary-color);
-    position: absolute;
-    right: -50%;
-    border-radius: 50%;
-    transition: all 0.5s;
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-color);
+  position: absolute;
+  right: -50%;
+  border-radius: 50%;
+  transition: all 0.5s;
 }
 
-
-#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(1).floating-navbar--active-tab~.floating-navbar__indicator {
-    transform: translateY(calc(60px * 0));
+#floating-navbar
+  .floating-navbar__menu
+  .floating-navbar__list-item:nth-child(1).floating-navbar--active-tab
+  ~ .floating-navbar__indicator {
+  transform: translateY(calc(60px * 0));
 }
 
-#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(2).floating-navbar--active-tab~.floating-navbar__indicator {
-    transform: translateY(calc(60px * 1));
+#floating-navbar
+  .floating-navbar__menu
+  .floating-navbar__list-item:nth-child(2).floating-navbar--active-tab
+  ~ .floating-navbar__indicator {
+  transform: translateY(calc(60px * 1));
 }
 
-#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(3).floating-navbar--active-tab~.floating-navbar__indicator {
-    transform: translateY(calc(60px * 2));
+#floating-navbar
+  .floating-navbar__menu
+  .floating-navbar__list-item:nth-child(3).floating-navbar--active-tab
+  ~ .floating-navbar__indicator {
+  transform: translateY(calc(60px * 2));
 }
 
-#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(4).floating-navbar--active-tab~.floating-navbar__indicator {
-    transform: translateY(calc(60px * 3));
+#floating-navbar
+  .floating-navbar__menu
+  .floating-navbar__list-item:nth-child(4).floating-navbar--active-tab
+  ~ .floating-navbar__indicator {
+  transform: translateY(calc(60px * 3));
 }
 
-#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(5).floating-navbar--active-tab~.floating-navbar__indicator {
-    transform: translateY(calc(60px * 4));
+#floating-navbar
+  .floating-navbar__menu
+  .floating-navbar__list-item:nth-child(5).floating-navbar--active-tab
+  ~ .floating-navbar__indicator {
+  transform: translateY(calc(60px * 4));
 }
 
-#floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(6).floating-navbar--active-tab~.floating-navbar__indicator {
-    transform: translateY(calc(60px * 5));
+#floating-navbar
+  .floating-navbar__menu
+  .floating-navbar__list-item:nth-child(6).floating-navbar--active-tab
+  ~ .floating-navbar__indicator {
+  transform: translateY(calc(60px * 5));
 }
-
-
 
 @media screen and (max-width: 768px) {
-    #floating-navbar {
-        height: 50px;
-        width: fit-content;
-        left: 50%;
-        top: unset;
-        bottom: 0rem;
-        transform: translate(-50%, -50%);
-        padding-block: 0;
-        padding-inline: 0.5rem;
-    }
+  #floating-navbar {
+    height: 50px;
+    width: fit-content;
+    left: 50%;
+    top: unset;
+    bottom: 0rem;
+    transform: translate(-50%, -50%);
+    padding-block: 0;
+    padding-inline: 0.5rem;
+  }
 
-    #floating-navbar .floating-navbar__menu {
-        flex-direction: row;
-    }
+  #floating-navbar .floating-navbar__menu {
+    flex-direction: row;
+  }
 
-    #floating-navbar .floating-navbar__menu .floating-navbar__list-item.floating-navbar--active-tab a .floating-navbar__icon {
-        transform: translate(0, -25px);
-    }
+  #floating-navbar
+    .floating-navbar__menu
+    .floating-navbar__list-item.floating-navbar--active-tab
+    a
+    .floating-navbar__icon {
+    transform: translate(0, -25px);
+  }
 
-    #floating-navbar .floating-navbar__menu .floating-navbar__list-item a .floating-navbar__icon {
-        line-height: 50px;
-    }
+  #floating-navbar .floating-navbar__menu .floating-navbar__list-item a .floating-navbar__icon {
+    line-height: 50px;
+  }
 
-    .floating-navbar__indicator {
-        width: 50px;
-        height: 50px;
-        left: 0;
-        bottom: 25px;
-    }
+  .floating-navbar__indicator {
+    width: 50px;
+    height: 50px;
+    left: 0;
+    bottom: 25px;
+  }
 
-    #floating-navbar .floating-navbar__menu .floating-navbar__list-item {
-        width: 50px;
-        height: 50px;
-    }
+  #floating-navbar .floating-navbar__menu .floating-navbar__list-item {
+    width: 50px;
+    height: 50px;
+  }
 
-    #floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(1).floating-navbar--active-tab~.floating-navbar__indicator {
-        transform: translateX(calc(50px * 0));
-    }
+  #floating-navbar
+    .floating-navbar__menu
+    .floating-navbar__list-item:nth-child(1).floating-navbar--active-tab
+    ~ .floating-navbar__indicator {
+    transform: translateX(calc(50px * 0));
+  }
 
-    #floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(2).floating-navbar--active-tab~.floating-navbar__indicator {
-        transform: translateX(calc(50px * 1));
-    }
+  #floating-navbar
+    .floating-navbar__menu
+    .floating-navbar__list-item:nth-child(2).floating-navbar--active-tab
+    ~ .floating-navbar__indicator {
+    transform: translateX(calc(50px * 1));
+  }
 
-    #floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(3).floating-navbar--active-tab~.floating-navbar__indicator {
-        transform: translateX(calc(50px * 2));
-    }
+  #floating-navbar
+    .floating-navbar__menu
+    .floating-navbar__list-item:nth-child(3).floating-navbar--active-tab
+    ~ .floating-navbar__indicator {
+    transform: translateX(calc(50px * 2));
+  }
 
-    #floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(4).floating-navbar--active-tab~.floating-navbar__indicator {
-        transform: translateX(calc(50px * 3));
-    }
+  #floating-navbar
+    .floating-navbar__menu
+    .floating-navbar__list-item:nth-child(4).floating-navbar--active-tab
+    ~ .floating-navbar__indicator {
+    transform: translateX(calc(50px * 3));
+  }
 
-    #floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(5).floating-navbar--active-tab~.floating-navbar__indicator {
-        transform: translateX(calc(50px * 4));
-    }
+  #floating-navbar
+    .floating-navbar__menu
+    .floating-navbar__list-item:nth-child(5).floating-navbar--active-tab
+    ~ .floating-navbar__indicator {
+    transform: translateX(calc(50px * 4));
+  }
 
-    #floating-navbar .floating-navbar__menu .floating-navbar__list-item:nth-child(6).floating-navbar--active-tab~.floating-navbar__indicator {
-        transform: translateX(calc(50px * 5));
-    }
+  #floating-navbar
+    .floating-navbar__menu
+    .floating-navbar__list-item:nth-child(6).floating-navbar--active-tab
+    ~ .floating-navbar__indicator {
+    transform: translateX(calc(50px * 5));
+  }
 }

@@ -1,78 +1,82 @@
-
-import { CSSIcon, ExpressIcon, HtmlIcon, JavascriptIcon, NodeIcon, ReactIcon, TypescriptIcon } from '../../../assets/svg'
+import {
+  CSSIcon,
+  ExpressIcon,
+  HtmlIcon,
+  JavascriptIcon,
+  NodeIcon,
+  ReactIcon,
+  TypescriptIcon
+} from '../../../assets/svg'
 import Box from '../../common/box'
-import "./Skills.css"
+import './Skills.css'
 
-type Props = {}
-
-const Skills = (props: Props) => {
-    const skillsArr = [
-        {
-            icon: <ReactIcon />,
-            title: "React",
-            level: "Experienced"
-        },
-        {
-            icon: <HtmlIcon />,
-            title: "HTML",
-            level: "Experienced"
-        },
-        {
-            icon: <CSSIcon />,
-            title: "CSS",
-            level: "Experienced"
-        },
-        {
-            icon: <JavascriptIcon />,
-            title: "Javascript",
-            level: "Experienced"
-        },
-        {
-            icon: <TypescriptIcon />,
-            title: "Typescript",
-            level: "Intermediate"
-        },
-        {
-            icon: <NodeIcon />,
-            title: "Node JS",
-            level: "Basic"
-        },
-        {
-            icon: <ExpressIcon />,
-            title: "Express",
-            level: "Basic"
-        }
-    ]
-    return (
-        <section id="skills" className="section">
-            <Box>
-                <div className="skills-container">
-                    <div>
-                        <h2>Technologies</h2>
-                        <p>I use</p>
-                    </div>
-                    <div className="skills-container__icons-container">
-                        {
-                            skillsArr?.map(({ icon, title, level }, index) => {
-                                return <div
-                                    className='skills-container__icon'
-                                    style={{ "--i-technologies": index } as React.CSSProperties}
-                                    key={index}
-                                >
-                                    {icon}
-                                    <div>
-                                        <h5>{title}</h5>
-                                        <p>{level}</p>
-                                    </div>
-                                </div>
-
-                            })
-                        }
-                    </div>
+const Skills = () => {
+  const skillsArr = [
+    {
+      icon: <ReactIcon />,
+      title: 'React',
+      level: 'Experienced'
+    },
+    {
+      icon: <HtmlIcon />,
+      title: 'HTML',
+      level: 'Experienced'
+    },
+    {
+      icon: <CSSIcon />,
+      title: 'CSS',
+      level: 'Experienced'
+    },
+    {
+      icon: <JavascriptIcon />,
+      title: 'Javascript',
+      level: 'Experienced'
+    },
+    {
+      icon: <TypescriptIcon />,
+      title: 'Typescript',
+      level: 'Intermediate'
+    },
+    {
+      icon: <NodeIcon />,
+      title: 'Node JS',
+      level: 'Basic'
+    },
+    {
+      icon: <ExpressIcon />,
+      title: 'Express',
+      level: 'Basic'
+    }
+  ]
+  return (
+    <section id="skills" className="section">
+      <Box>
+        <div className="skills-container">
+          <div>
+            <h2>Technologies</h2>
+            <p>I use</p>
+          </div>
+          <div className="skills-container__icons-container">
+            {skillsArr?.map(({ icon, title, level }, index) => {
+              return (
+                <div
+                  className="skills-container__icon"
+                  style={{ '--i-technologies': index } as React.CSSProperties}
+                  key={index}
+                >
+                  {icon}
+                  <div>
+                    <h5>{title}</h5>
+                    <p>{level}</p>
+                  </div>
                 </div>
-            </Box>
-        </section>
-    )
+              )
+            })}
+          </div>
+        </div>
+      </Box>
+    </section>
+  )
 }
 
 export default Skills
