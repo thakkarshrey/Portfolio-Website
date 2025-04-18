@@ -3,7 +3,8 @@ import Box from '../../common/box'
 import Button from '../../common/button'
 import { faArrowsRotate, faBuildingColumns, faMedal } from '@fortawesome/free-solid-svg-icons'
 import { useMediaMatch } from '../../../hooks/useMediaMatch'
-import { forwardRef, SetStateAction, useEffect, useRef, useState } from 'react'
+import React, { SetStateAction, useEffect, useState } from 'react'
+import { useAnimate } from '../../../hooks/useAnimate'
 import './About.css'
 
 type ExperienceAndEducationCardProps = {
@@ -15,13 +16,15 @@ type ExperienceAndEducationCardProps = {
 }
 
 const About = () => {
+  const animationClass = useAnimate(100)
   const experienceData = [
     {
       id: 1,
       icon: <FontAwesomeIcon icon={faMedal} />,
       title: 'Experience',
-      paragraph_01: '3.6 years',
-      paragraph_02: 'Frontend Development'
+      paragraph_01: '4 years',
+      // paragraph_02: 'Frontend Development'
+      paragraph_02: 'Software Engineer'
     },
     {
       id: 2,
@@ -34,20 +37,16 @@ const About = () => {
 
   const isDesktop = useMediaMatch('(max-width:1024px)')
   const [isFlipped, setIsFlipped] = useState(false)
-  const aboutProfileRef = useRef<HTMLDivElement>(null)
+  const [initialLoad, setInitialLoad] = useState(true)
 
   useEffect(() => {
-    if (aboutProfileRef.current) {
-      if (isFlipped) {
-        aboutProfileRef.current?.classList.add('flipped')
-      } else {
-        aboutProfileRef.current?.classList.remove('flipped')
-      }
-    }
-  }, [isFlipped])
+    setTimeout(() => {
+      setInitialLoad(false)
+    }, 1000)
+  }, [])
 
   return (
-    <section id="about" className="section">
+    <section id="about" className={`section ${animationClass}`}>
       <Box>
         <div className="about__card-container">
           <div>
@@ -59,7 +58,7 @@ const About = () => {
               experienceData={experienceData}
               isFlipped={isFlipped}
               setIsFlipped={setIsFlipped}
-              ref={aboutProfileRef}
+              initialLoad={initialLoad}
             />
           ) : (
             <AboutCardsForDesktopDevice experienceData={experienceData} />
@@ -70,50 +69,43 @@ const About = () => {
   )
 }
 
-function ExperienceAndEducationCard({
-  icon,
-  title,
-  paragraph_01,
-  paragraph_02
-}: ExperienceAndEducationCardProps) {
-  return (
-    <div>
-      <div className="about__cards-icon-container">
-        <span className="about__cards-icon">{icon}</span>
-        <h5>{title}</h5>
+const ExperienceAndEducationCard = React.memo(
+  ({ icon, title, paragraph_01, paragraph_02 }: ExperienceAndEducationCardProps) => {
+    return (
+      <div>
+        <div className="about__cards-icon-container">
+          <span className="about__cards-icon">{icon}</span>
+          <h5>{title}</h5>
+        </div>
+        <small>
+          {paragraph_01} <br />
+          {paragraph_02}
+        </small>
       </div>
-      <small>
-        {paragraph_01} <br />
-        {paragraph_02}
-      </small>
-    </div>
-  )
-}
+    )
+  }
+)
 
 type AboutCardsSmallAndMediumDevicesProps = {
   experienceData: ExperienceAndEducationCardProps[]
   isFlipped: boolean
   setIsFlipped: React.Dispatch<SetStateAction<boolean>>
+  initialLoad: boolean
 }
 
-const AboutCardsSmallAndMediumDevices = forwardRef<
-  HTMLDivElement,
-  AboutCardsSmallAndMediumDevicesProps
->(({ experienceData, setIsFlipped }, ref) => {
-  return (
-    <div className="about__card">
-      <div ref={ref} className="about__profile">
-        <div className="about__front-image">
-          <FontAwesomeIcon
-            icon={faArrowsRotate}
-            style={{ color: 'var(--primary-color)' }}
-            onClick={() => {
-              setIsFlipped((prevValue) => !prevValue)
-            }}
-          />
-        </div>
-        <div className="about__back-image">
-          <div className="about__content">
+const AboutCardsSmallAndMediumDevices = React.memo(
+  ({
+    experienceData,
+    setIsFlipped,
+    isFlipped,
+    initialLoad
+  }: AboutCardsSmallAndMediumDevicesProps) => {
+    return (
+      <div className="about__card">
+        <div
+          className={`about__profile ${isFlipped ? 'flipped' : ''} ${!initialLoad && 'reset-delay'}`}
+        >
+          <div className="about__front-image">
             <FontAwesomeIcon
               icon={faArrowsRotate}
               style={{ color: 'var(--primary-color)' }}
@@ -121,60 +113,77 @@ const AboutCardsSmallAndMediumDevices = forwardRef<
                 setIsFlipped((prevValue) => !prevValue)
               }}
             />
+          </div>
+          <div className="about__back-image">
+            <div className="about__content">
+              <FontAwesomeIcon
+                icon={faArrowsRotate}
+                style={{ color: 'var(--primary-color)' }}
+                onClick={() => {
+                  setIsFlipped((prevValue) => !prevValue)
+                }}
+              />
 
-            <div className="about__cards">
-              {experienceData?.map((element: ExperienceAndEducationCardProps) => {
-                return <ExperienceAndEducationCard key={element.id} {...element} />
-              })}
+              <div className="about__cards">
+                {experienceData?.map((element: ExperienceAndEducationCardProps) => {
+                  return <ExperienceAndEducationCard key={element.id} {...element} />
+                })}
+              </div>
+              <p>
+                I love building responsive web apps and improving user interfaces. I’m passionate
+                about exploring new front‑end frameworks, experimenting with animations, and
+                optimizing performance to ensure every interaction feels smooth and intuitive.
+              </p>
+              <p>
+                Outside work, I stay active by hitting the gym, playing, or watching
+                football—balancing my coding life with fitness and fun.
+              </p>
+              <a href="#contact">
+                <Button variant="primary">Download CV</Button>
+              </a>
             </div>
-            <p>I love building responsive web apps and improving user interfaces.</p>
-            <p>
-              Outside work, I stay active by hitting the gym, playing, or watching
-              football—balancing my coding life with fitness and fun.
-            </p>
-            <a href="#contact">
-              <Button variant="primary">Download CV</Button>
-            </a>
           </div>
         </div>
       </div>
-    </div>
-  )
-})
+    )
+  }
+)
 
-function AboutCardsForDesktopDevice({
-  experienceData
-}: {
-  experienceData: ExperienceAndEducationCardProps[]
-}) {
-  return (
-    <div className="about__card">
-      <div className="about__profile">
-        <div className="about__front-image"></div>
-        <div className="about__back-image">
-          <div className="about__back-image-content">
-            <p>Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.</p>
-            <p>I have over 3 years of experience in Frontend Development.</p>
+const AboutCardsForDesktopDevice = React.memo(
+  ({ experienceData }: { experienceData: ExperienceAndEducationCardProps[] }) => {
+    return (
+      <div className="about__card">
+        <div className="about__profile">
+          <div className="about__front-image"></div>
+          <div className="about__back-image">
+            <div className="about__back-image-content">
+              <p>Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.</p>
+              <p>I have over 4 years of experience as a Software Engineer.</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="about__content">
-        <div className="about__cards">
-          {experienceData?.map((element: ExperienceAndEducationCardProps) => {
-            return <ExperienceAndEducationCard key={element.id} {...element} />
-          })}
+        <div className="about__content">
+          <div className="about__cards">
+            {experienceData?.map((element: ExperienceAndEducationCardProps) => {
+              return <ExperienceAndEducationCard key={element.id} {...element} />
+            })}
+          </div>
+          <p>
+            I love building responsive web apps and improving user interfaces. I’m passionate about
+            exploring new front‑end frameworks, experimenting with animations, and optimizing
+            performance to ensure every interaction feels smooth and intuitive.
+          </p>
+          <p>
+            Outside work, I stay active by hitting the gym, playing, or watching football—balancing
+            my coding life with fitness and fun.
+          </p>
+          <a href="#contact">
+            <Button variant="primary">Download CV</Button>
+          </a>
         </div>
-        <p>I love building responsive web apps and improving user interfaces.</p>
-        <p>
-          Outside work, I stay active by hitting the gym, playing, or watching football—balancing my
-          coding life with fitness and fun.
-        </p>
-        <a href="#contact">
-          <Button variant="primary">Download CV</Button>
-        </a>
       </div>
-    </div>
-  )
-}
+    )
+  }
+)
 
 export default About

@@ -2,6 +2,7 @@
   padding: 2rem 0 4rem 0;
   overflow: hidden;
   user-select: none;
+  --profile-delay: 1s;
 }
 
 .about__card-container {
@@ -96,6 +97,7 @@
 .about__cards {
   display: flex;
   justify-content: space-between;
+  gap: 0.1rem;
 }
 
 .about__cards > * {
@@ -161,6 +163,10 @@
 #about.show-animation .about__profile {
   transform: rotateY(-180deg);
   transition-delay: 1s;
+}
+
+#about.show-animation .about__profile.reset-delay {
+  transition-delay: 0s;
 }
 
 /* About card profile */
@@ -297,18 +303,13 @@
     transform-origin: unset;
   }
 
-  /* .about__profile.flipped {
-        transform: rotateY(0deg) !important;
-        transition-delay: 0s !important;
-    } */
-
   #about.show-animation .about__profile.flipped {
     transform: rotateY(0deg);
     transition-delay: 0s;
   }
 
   .about__cards {
-    flex-direction: column;
+    /* flex-direction: row; */
     align-items: center;
   }
 

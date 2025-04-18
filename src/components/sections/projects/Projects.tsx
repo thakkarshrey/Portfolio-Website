@@ -3,8 +3,11 @@ import './Projects.css'
 import Button from '../../common/button'
 import Tags from '../../common/tags'
 import Box from '../../common/box'
+import { useAnimate } from '../../../hooks/useAnimate'
 
 const Projects = () => {
+  const animationClass = useAnimate(100)
+
   const projectsArr = [
     {
       id: 1,
@@ -46,7 +49,7 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="section">
+    <section id="projects" className={`section ${animationClass}`}>
       <Box>
         <div className="projects-container">
           <h2>Projects</h2>

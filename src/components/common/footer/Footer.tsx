@@ -1,11 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Box from '../box'
-import { navbarUtils } from '../navbar/Data'
 import { faCopyright } from '@fortawesome/free-regular-svg-icons'
 import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { Link } from 'react-router'
+import { sidebarUtils } from '../../../utils/sidebarUtils'
 import './Footer.css'
 
 const Footer = () => {
+  const menu = sidebarUtils()
   const socialMediaLinksData = [
     {
       id: 1,
@@ -32,10 +34,10 @@ const Footer = () => {
         <div className="footer-container">
           <h2>Shrey Thakkar</h2>
           <ul className="footer-navbar__menu">
-            {navbarUtils?.map((element: { id: number; link: string; title: string }) => {
+            {menu?.map((element: { id: number; link: string; title: string }) => {
               return (
                 <li key={element.id} className="footer-navbar__list-item">
-                  <a href={element.link}>{element.title}</a>
+                  <Link to={element.link}>{element.title}</Link>
                 </li>
               )
             })}

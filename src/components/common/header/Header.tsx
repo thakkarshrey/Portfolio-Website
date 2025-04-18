@@ -3,9 +3,12 @@ import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-
 import Box from '../box'
 import Button from '../button'
 import useTypewriterEffect from '../../../hooks/useTypewriterEffect'
+import { useAnimate } from '../../../hooks/useAnimate'
 import './Header.css'
 
 const Header = () => {
+  const animationClass = useAnimate(100)
+
   /* typewriter effect dependencies */
   const words = ['Frontend Developer.', 'Software Engineer.', 'Web Developer.']
 
@@ -36,7 +39,7 @@ const Header = () => {
   /* social media links array */
 
   return (
-    <section id="header" className="section">
+    <section id="header" className={`section ${animationClass}`}>
       <Box>
         <div className="header__container">
           <div className="header__content">

@@ -5,6 +5,8 @@ import Box from '../../common/box'
 import Button from '../../common/button'
 import { useState } from 'react'
 import './Contact.css'
+import { useAnimate } from '../../../hooks/useAnimate'
+import Footer from '../../common/footer'
 
 type CardProps = {
   id: number
@@ -18,6 +20,8 @@ const Contact = () => {
   /* loading dependencies */
   const [loading, setLoading] = useState(false)
   /* loading dependencies */
+
+  const animationClass = useAnimate(100)
 
   const cardsData = [
     {
@@ -69,59 +73,62 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="section">
-      <Box>
-        <div className="contact-container">
-          <div>
-            <p>Get in touch</p>
-            <h2>Contact Me</h2>
-          </div>
-          <div className="contact-container__content">
-            <div className="contact-container__cards">
-              {cardsData?.map((element) => {
-                return <Cards key={element.id} {...element} />
-              })}
+    <>
+      <section id="contact" className={`section ${animationClass}`}>
+        <Box>
+          <div className="contact-container">
+            <div>
+              <p>Get in touch</p>
+              <h2>Contact Me</h2>
             </div>
-            <div className="contact-container__form">
-              <form onSubmit={onSubmit} className="contact-container__form-container">
-                <input
-                  style={{ '--input-field-i': 1 } as React.CSSProperties}
-                  className="input-field input-field-outlined"
-                  type="text"
-                  name="name"
-                  required
-                  placeholder="Your name"
-                />
-                <input
-                  style={{ '--input-field-i': 2 } as React.CSSProperties}
-                  className="input-field input-field-outlined"
-                  type="email"
-                  name="email"
-                  required
-                  placeholder="Your email"
-                />
-                <textarea
-                  style={{ '--input-field-i': 3 } as React.CSSProperties}
-                  className="text-area text-area-outlined"
-                  name="message"
-                  required
-                  rows={6}
-                  placeholder="Your message"
-                />
-                <Button
-                  disabled={loading}
-                  style={{ '--input-field-i': 4 } as React.CSSProperties}
-                  type="submit"
-                  variant="primary"
-                >
-                  Send Message
-                </Button>
-              </form>
+            <div className="contact-container__content">
+              <div className="contact-container__cards">
+                {cardsData?.map((element) => {
+                  return <Cards key={element.id} {...element} />
+                })}
+              </div>
+              <div className="contact-container__form">
+                <form onSubmit={onSubmit} className="contact-container__form-container">
+                  <input
+                    style={{ '--input-field-i': 1 } as React.CSSProperties}
+                    className="input-field input-field-outlined"
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Your name"
+                  />
+                  <input
+                    style={{ '--input-field-i': 2 } as React.CSSProperties}
+                    className="input-field input-field-outlined"
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="Your email"
+                  />
+                  <textarea
+                    style={{ '--input-field-i': 3 } as React.CSSProperties}
+                    className="text-area text-area-outlined"
+                    name="message"
+                    required
+                    rows={6}
+                    placeholder="Your message"
+                  />
+                  <Button
+                    disabled={loading}
+                    style={{ '--input-field-i': 4 } as React.CSSProperties}
+                    type="submit"
+                    variant="primary"
+                  >
+                    Send Message
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </Box>
-    </section>
+        </Box>
+      </section>
+      <Footer />
+    </>
   )
 }
 

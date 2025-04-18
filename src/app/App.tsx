@@ -1,49 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
-import Header from '../components/common/header'
-import About from '../components/sections/about'
-import Projects from '../components/sections/projects'
-import Contact from '../components/sections/contact'
-import Footer from '../components/common/footer'
-import Skills from '../components/sections/skills'
-import FloatingNavbar from '../components/common/floating-navbar'
-import Experience from '../components/sections/experience'
 import BackgroundWithCanvas from '../components/common/background-with-canvas'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons'
+import { createBrowserRouter, RouterProvider } from 'react-router'
+import { routes } from './routes'
 import './App.css'
 
 const App = () => {
   const inputRef = useRef<HTMLInputElement | null>(null)
   const [selectedTheme, setSelectedTheme] = useState(localStorage.getItem('mode') || 'light')
-
-  useEffect(() => {
-    const sections = document.querySelectorAll('section')
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (!entry.target.classList.contains('show-animation')) {
-              entry.target.classList.add('show-animation')
-            }
-          } else {
-            entry.target.classList.remove('show-animation')
-          }
-        })
-      },
-      {
-        threshold: [0.1, 0.3]
-      }
-    )
-
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section))
-    }
-  }, [])
 
   useEffect(() => {
     localStorage.setItem('mode', selectedTheme)
@@ -72,14 +37,7 @@ const App = () => {
           </div>
         </label>
       </div>
-      <FloatingNavbar />
-      <Header />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      <RouterProvider router={createBrowserRouter(routes)} />
     </BackgroundWithCanvas>
   )
 }
