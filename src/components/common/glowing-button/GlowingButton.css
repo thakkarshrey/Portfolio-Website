@@ -1,0 +1,95 @@
+#glowing-button {
+  background: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  transition: 0.5s;
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+  padding: 0.8rem 1.5rem;
+}
+
+#glowing-button span {
+  position: absolute;
+  display: block;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+#glowing-button span:nth-child(1) {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: linear-gradient(90deg, transparent, white);
+  animation-name: glow01;
+  animation-delay: 0s;
+}
+
+@keyframes glow01 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+#glowing-button span:nth-child(2) {
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 2.5px;
+  background: linear-gradient(180deg, transparent, white);
+  animation-name: glow02;
+  animation-delay: 1s;
+}
+
+@keyframes glow02 {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+#glowing-button span:nth-child(3) {
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2.5px;
+  background: linear-gradient(270deg, transparent, white);
+  animation-name: glow03;
+  animation-delay: 2s;
+}
+
+@keyframes glow03 {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+#glowing-button span:nth-child(4) {
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 2.5px;
+  background: linear-gradient(360deg, transparent, white);
+  animation-name: glow04;
+  animation-delay: 3s;
+}
+
+@keyframes glow04 {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 100%;
+  }
+}

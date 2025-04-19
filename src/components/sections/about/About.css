@@ -189,6 +189,12 @@
   background-size: cover;
 }
 
+.about__front-image .about__rotate-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 .about__back-image {
   background: url(/assets/images/Shrey_Profile_02.jpg);
   background-position: center;
@@ -292,6 +298,70 @@
     background: url(/assets/images/Shrey_Profile_04.jpg);
     background-position: center;
     background-size: cover;
+    transition: all 0.5s ease;
+  }
+
+  .about__front-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .about__front-image-container::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease;
+    opacity: 0;
+  }
+
+  .about__front-image-container:hover::after {
+    position: absolute;
+    content: '';
+    transform: translateY(0);
+    background: linear-gradient(35deg, rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0, 0));
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .about__front-image-container:hover .about__front-image {
+    transform: scale(1.2);
+  }
+
+  .about__front-image-container .about__info-card .about__info-card-paragraph,
+  .about__front-image-container .about__info-card .about__info-card-button {
+    position: absolute;
+    opacity: 0;
+    z-index: 11;
+    overflow: hidden;
+    transform: translateY(105%);
+    transition: all 0.5s ease;
+    left: 5%;
+    right: 5%;
+    bottom: 20%;
+    padding: 10px 12px;
+    color: white;
+  }
+
+  .about__front-image-container .about__info-card .about__info-card-button {
+    bottom: 5%;
+  }
+
+  .about__front-image-container:hover .about__info-card .about__info-card-paragraph,
+  .about__front-image-container:hover .about__info-card .about__info-card-button {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .about__front-image-container:hover .about__info-card .about__info-card-button {
+    transition-delay: 0.25s;
   }
 
   .about__back-image {
@@ -309,12 +379,11 @@
   }
 
   .about__cards {
-    /* flex-direction: row; */
     align-items: center;
   }
 
   .about__cards > * {
-    width: 100%;
+    padding: 1rem;
   }
 
   .about__cards-icon-container {

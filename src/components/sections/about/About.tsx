@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Box from '../../common/box'
 import Button from '../../common/button'
-import { faArrowsRotate, faBuildingColumns, faMedal } from '@fortawesome/free-solid-svg-icons'
+import { faBuildingColumns, faMedal } from '@fortawesome/free-solid-svg-icons'
 import { useMediaMatch } from '../../../hooks/useMediaMatch'
 import React, { SetStateAction, useEffect, useState } from 'react'
 import { useAnimate } from '../../../hooks/useAnimate'
+import GlowingButton from '../../common/glowing-button'
 import './About.css'
 
 type ExperienceAndEducationCardProps = {
@@ -105,25 +106,30 @@ const AboutCardsSmallAndMediumDevices = React.memo(
         <div
           className={`about__profile ${isFlipped ? 'flipped' : ''} ${!initialLoad && 'reset-delay'}`}
         >
-          <div className="about__front-image">
-            <FontAwesomeIcon
-              icon={faArrowsRotate}
-              style={{ color: 'var(--primary-color)' }}
-              onClick={() => {
-                setIsFlipped((prevValue) => !prevValue)
-              }}
-            />
+          <div className="about__front-image-container">
+            <div className="about__front-image"></div>
+            {isFlipped && (
+              <div className="about__info-card">
+                <div className="about__info-card-paragraph">
+                  <p>
+                    Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.
+                  </p>
+                  <p>I have over 4 years of experience as a Software Engineer.</p>
+                </div>
+                <div className="about__info-card-button">
+                  <GlowingButton
+                    onClick={() => {
+                      setIsFlipped((prevValue) => !prevValue)
+                    }}
+                  >
+                    Read more
+                  </GlowingButton>
+                </div>
+              </div>
+            )}
           </div>
           <div className="about__back-image">
             <div className="about__content">
-              <FontAwesomeIcon
-                icon={faArrowsRotate}
-                style={{ color: 'var(--primary-color)' }}
-                onClick={() => {
-                  setIsFlipped((prevValue) => !prevValue)
-                }}
-              />
-
               <div className="about__cards">
                 {experienceData?.map((element: ExperienceAndEducationCardProps) => {
                   return <ExperienceAndEducationCard key={element.id} {...element} />
@@ -138,9 +144,17 @@ const AboutCardsSmallAndMediumDevices = React.memo(
                 Outside work, I stay active by hitting the gym, playing, or watching
                 football—balancing my coding life with fitness and fun.
               </p>
-              <a href="#contact">
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
                 <Button variant="primary">Download CV</Button>
-              </a>
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    setIsFlipped((prevValue) => !prevValue)
+                  }}
+                >
+                  Go back
+                </Button>
+              </div>
             </div>
           </div>
         </div>

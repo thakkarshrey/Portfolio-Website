@@ -15,6 +15,7 @@
 .footer-container .footer-navbar__menu {
   list-style: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 2rem;
@@ -55,4 +56,10 @@
 
 .footer-container___social-media-buttons .footer-container__cards-icon:hover a {
   color: var(--github-color-code);
+}
+
+@media screen and (min-width: 768px) {
+  .footer-container .footer-navbar__menu {
+    flex-direction: row;
+  }
 }
