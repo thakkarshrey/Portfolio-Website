@@ -91,6 +91,14 @@
 .timeline .timeline__content-container {
   position: relative;
   padding: 0.8rem 0;
+  transform: translateX(400px);
+  opacity: 0;
+  transition: all calc(0.5s * var(--timeline-content-i));
+}
+
+#experience.show-animation .timeline .timeline__content-container {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .timeline .timeline__content-container .timeline__arrow {
@@ -145,6 +153,14 @@
   .timeline .timeline__content-container {
     padding-left: 4.5rem;
     padding-top: 0;
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all calc(0.5s * var(--timeline-content-i));
+  }
+
+  #experience.show-animation .timeline .timeline__content-container {
+    transform: translateX(0);
+    opacity: 1;
   }
 
   .timeline .timeline__content-container .timeline__arrow {

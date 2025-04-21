@@ -1,42 +1,24 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import Box from '../box'
 import Button from '../button'
 import useTypewriterEffect from '../../../hooks/useTypewriterEffect'
+import { useAnimate } from '../../../hooks/useAnimate'
+import { Link } from 'react-router'
+import { socialMediaLinkUtils } from '../../../utils/socialMediaLinkUtils'
 import './Header.css'
 
 const Header = () => {
+  const animationClass = useAnimate(100)
+
   /* typewriter effect dependencies */
   const words = ['Frontend Developer.', 'Software Engineer.', 'Web Developer.']
 
   const typeWriter = useTypewriterEffect(words)
   /* typewriter effect dependencies */
 
-  /* social media links array */
-  const socialMediaLinksData = [
-    {
-      id: 1,
-      link: 'https://linkdn.com',
-      icon: <FontAwesomeIcon icon={faLinkedin} />,
-      label: 'Linkdin'
-    },
-    {
-      id: 2,
-      link: 'https://github.com',
-      icon: <FontAwesomeIcon icon={faGithub} />,
-      label: 'Github'
-    },
-    {
-      id: 3,
-      link: 'https://instagram.com',
-      icon: <FontAwesomeIcon icon={faInstagram} />,
-      label: 'Instagram'
-    }
-  ]
-  /* social media links array */
+  const socialMediaMenu = socialMediaLinkUtils()
 
   return (
-    <section id="header" className="section">
+    <section id="header" className={`section ${animationClass}`}>
       <Box>
         <div className="header__container">
           <div className="header__content">
@@ -47,16 +29,16 @@ const Header = () => {
             </h3>
 
             <div className="header__navigation-buttons">
-              <a href="#contact" style={{ '--navigation-buttons-i': 1 } as React.CSSProperties}>
+              <Link to="/contact" style={{ '--navigation-buttons-i': 1 } as React.CSSProperties}>
                 <Button variant="primary">Let's Talk</Button>
-              </a>
+              </Link>
 
-              <a href="#portfolio" style={{ '--navigation-buttons-i': 2 } as React.CSSProperties}>
+              <Link to="/projects" style={{ '--navigation-buttons-i': 2 } as React.CSSProperties}>
                 <Button variant="secondary">My Work</Button>
-              </a>
+              </Link>
             </div>
             <div className="header__social-media-container">
-              {socialMediaLinksData?.map((element, index) => {
+              {socialMediaMenu?.map((element, index) => {
                 return (
                   <div
                     className="header__social-media-button"
@@ -70,9 +52,9 @@ const Header = () => {
                     <div key={element.id} className="header__social-media-icon">
                       {element.icon}
                     </div>
-                    <a href={element.link} target="_blank" rel="noreferrer">
+                    <Link to={element.link} target="_blank" rel="noreferrer">
                       {element.label}
-                    </a>
+                    </Link>
                   </div>
                 )
               })}

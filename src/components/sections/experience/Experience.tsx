@@ -1,4 +1,5 @@
 import { AppAssetsConfig } from '../../../assets/config/AppAssetsConfig'
+import { useAnimate } from '../../../hooks/useAnimate'
 import Box from '../../common/box'
 import './Experience.css'
 
@@ -15,6 +16,7 @@ type ExperienceTypes = {
 type TimelineProps = ExperienceTypes & { index: number }
 
 const Experience = () => {
+  const animationClass = useAnimate(100)
   const experienceArr: ExperienceTypes[] = [
     {
       id: 1,
@@ -48,7 +50,7 @@ const Experience = () => {
     }
   ]
   return (
-    <section id="experience" className="section">
+    <section id="experience" className={`section ${animationClass}`}>
       <Box>
         <div className="experience__card-container">
           <div>

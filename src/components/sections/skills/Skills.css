@@ -1,5 +1,5 @@
 #skills {
-  padding: 10rem 0;
+  padding: 2rem 0;
 }
 
 .skills-container {
@@ -30,10 +30,6 @@
   transition: transform calc(0.3s * var(--i-technologies)) ease-in-out;
 }
 
-.skills-container__icon svg.express-icon path {
-  fill: var(--font-color);
-}
-
 #skills.show-animation .skills-container__icon {
   transform: translateX(0);
   opacity: 1;
@@ -51,14 +47,14 @@
   opacity: 1;
 }
 
-.skills-container p {
+.skills-container .skills-container__header p {
   transform: translateX(100%);
   opacity: 0;
   transition: 1s;
   color: var(--font-color);
 }
 
-#skills.show-animation .skills-container p {
+#skills.show-animation .skills-container .skills-container__header p {
   transform: translateX(0);
   opacity: 1;
 }

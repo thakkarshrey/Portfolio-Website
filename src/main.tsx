@@ -12,3 +12,24 @@ root.render(
     <App />
   </React.StrictMode>
 )
+
+async function serviceWorker() {
+  if ('serviceWorker' in navigator) {
+    try {
+      const registration = await navigator.serviceWorker.register('/serviceWorker.js', {
+        scope: '/'
+      })
+      if (registration.installing) {
+        console.log('Service worker is installing')
+      } else if (registration.waiting) {
+        console.log('Service worker is installed')
+      } else if (registration.active) {
+        console.log('Service worker is active')
+      }
+    } catch (error) {
+      console.log(`Registration failed with ${error}`)
+    }
+  }
+}
+
+serviceWorker()

@@ -141,4 +141,19 @@
     width: 330px;
     height: 150px;
   }
+
+  .projects-container .projects-container__card .projects-container__content {
+    width: 100%;
+    top: 190px;
+  }
+
+  .projects-container .projects-container__card:hover .projects-container__content {
+    top: 75px;
+    height: 410px;
+  }
+
+  .projects-container .projects-container__card:hover .projects-container__img-box {
+    top: -60px;
+    scale: 0.75;
+  }
 }

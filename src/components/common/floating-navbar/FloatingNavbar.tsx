@@ -1,94 +1,37 @@
-import {
-  faAddressBook,
-  faAddressCard,
-  faCode,
-  faHouse,
-  faLaptopFile,
-  faLayerGroup
-} from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useEffect, useState } from 'react'
+import { NavLink, useLocation } from 'react-router'
+import { sidebarUtils } from '../../../utils/sidebarUtils'
 import './FloatingNavbar.css'
 
 const FloatingNavbar = () => {
-  const navbarUtils = [
-    {
-      id: 1,
-      title: 'Home',
-      link: '#header',
-      icon: <FontAwesomeIcon icon={faHouse} style={{ color: 'var(--white-color)' }} />
-    },
-    {
-      id: 2,
-      title: 'About',
-      link: '#about',
-      icon: <FontAwesomeIcon icon={faAddressCard} style={{ color: 'var(--white-color)' }} />
-    },
-    {
-      id: 3,
-      title: 'Experience',
-      link: '#experience',
-      icon: <FontAwesomeIcon icon={faLaptopFile} style={{ color: 'var(--white-color)' }} />
-    },
-    {
-      id: 4,
-      title: 'Skills',
-      link: '#skills',
-      icon: <FontAwesomeIcon icon={faLayerGroup} style={{ color: 'var(--white-color)' }} />
-    },
-    {
-      id: 5,
-      title: 'Projects',
-      link: '#projects',
-      icon: <FontAwesomeIcon icon={faCode} style={{ color: 'var(--white-color)' }} />
-    },
-    {
-      id: 6,
-      title: 'Contact',
-      link: '#contact',
-      icon: <FontAwesomeIcon icon={faAddressBook} style={{ color: 'var(--white-color)' }} />
-    }
-  ]
-  const [currentElementLink, setCurrentElementLink] = useState(navbarUtils[0].link)
+  const location = useLocation()
+  const menu = sidebarUtils()
+  const [currentElementId, setCurrentElementId] = useState(menu[0].id)
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section')
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            window.location.hash = `#${entry.target.id}`
-            setCurrentElementLink(`#${entry.target.id}`)
-          }
-        })
-      },
-      {
-        threshold: 0.5
-      }
-    )
+    const pathname_arr = location.pathname.split('/')
+    const pathname = pathname_arr[1]
+    if (currentElementId === pathname) return
 
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
+    setCurrentElementId(pathname)
 
-    return () => {
-      sections.forEach((section) => observer.unobserve(section))
-    }
-  }, [])
+    // eslint-disable-next-line
+  }, [location.pathname])
 
   return (
     <div id="floating-navbar">
       <ul className="floating-navbar__menu">
-        {navbarUtils?.map(
-          (element: { id: number; link: string; title: string; icon: React.ReactElement }) => {
+        {menu?.map(
+          (element: { id: string; link: string; title: string; icon: React.ReactElement }) => {
             return (
               <li
                 key={element.id}
-                className={`floating-navbar__list-item ${element.link === currentElementLink ? 'floating-navbar--active-tab' : ''}`}
+                className={`floating-navbar__list-item ${element.id === currentElementId ? 'floating-navbar--active-tab' : ''}`}
+                onClick={() => setCurrentElementId(element.id)}
               >
-                <a href={element.link}>
+                <NavLink to={element.link}>
                   <span className="floating-navbar__icon">{element.icon} </span>
-                </a>
+                </NavLink>
               </li>
             )
           }

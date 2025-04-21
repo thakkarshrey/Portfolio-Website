@@ -3,8 +3,11 @@ import './Projects.css'
 import Button from '../../common/button'
 import Tags from '../../common/tags'
 import Box from '../../common/box'
+import { useAnimate } from '../../../hooks/useAnimate'
 
 const Projects = () => {
+  const animationClass = useAnimate(100)
+
   const projectsArr = [
     {
       id: 1,
@@ -28,7 +31,7 @@ const Projects = () => {
       id: 4,
       name: 'Synapp Expertise',
       description:
-        'A blogging platform where users can write, edit, and share their blogs, with Markdown support.',
+        'Synapp Expertise is a healthcare platform. As a Frontend Engineer, I Implemented role-based authentication and authorization for user roles like physician, patient, super-admin, author, editor. Integrated real-time communication features such as video calls and chat, along with QR-based case sharing, dynamic medical report generation. I led the creation of complex UI modules using React, Redux Toolkit, and Ant Design, optimizing performance through lazy loading and efficient rendering.​​',
       techStack: ['React.js', 'SCSS', 'Antd', 'Redux-Toolkit'],
       liveDemo: 'https://expertise-dev.synapp.eu/',
       image: '/assets/images/Synapp_Expertise.png'
@@ -46,7 +49,7 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" className="section">
+    <section id="projects" className={`section ${animationClass}`}>
       <Box>
         <div className="projects-container">
           <h2>Projects</h2>

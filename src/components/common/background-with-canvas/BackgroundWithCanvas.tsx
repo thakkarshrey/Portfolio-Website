@@ -23,7 +23,6 @@ const BackgroundWithCanvas = ({ children }: Props) => {
         }}
       />
       <div style={{ position: 'relative', zIndex: 2 }}>{children}</div>
-      {/* <>{children}</> */}
     </>
   )
 }

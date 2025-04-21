@@ -107,7 +107,6 @@
   transform: translateX(400px);
   opacity: 0;
   transition: transform calc(0.5s * var(--input-field-i)) ease-in-out;
-  background-color: red;
 }
 
 #contact.show-animation .input-field {

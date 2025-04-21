@@ -1,68 +1,18 @@
-import { useEffect, useRef, useState } from 'react'
-import Header from '../components/common/header'
-import About from '../components/sections/about'
-import Projects from '../components/sections/projects'
-import Contact from '../components/sections/contact'
-import Footer from '../components/common/footer'
-import Skills from '../components/sections/skills'
-import FloatingNavbar from '../components/common/floating-navbar'
-import Experience from '../components/sections/experience'
 import BackgroundWithCanvas from '../components/common/background-with-canvas'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-regular-svg-icons'
+import { createBrowserRouter, RouterProvider } from 'react-router'
+import { routes } from './routes'
+import useThemeChange from '../hooks/useThemeChange'
 import './App.css'
 
 const App = () => {
-  const inputRef = useRef<HTMLInputElement | null>(null)
-  const [selectedTheme, setSelectedTheme] = useState(localStorage.getItem('mode') || 'light')
-
-  useEffect(() => {
-    const sections = document.querySelectorAll('section')
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (!entry.target.classList.contains('show-animation')) {
-              entry.target.classList.add('show-animation')
-            }
-          } else {
-            entry.target.classList.remove('show-animation')
-          }
-        })
-      },
-      {
-        threshold: [0.1, 0.3]
-      }
-    )
-
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section))
-    }
-  }, [])
-
-  useEffect(() => {
-    localStorage.setItem('mode', selectedTheme)
-    document.documentElement.setAttribute('data-theme', selectedTheme)
-
-    if (inputRef.current) {
-      inputRef.current.checked = selectedTheme === 'dark'
-    }
-  }, [selectedTheme])
+  const { ref, changeTheme } = useThemeChange()
 
   return (
     <BackgroundWithCanvas>
       <div className="toggle-container">
-        <input
-          ref={inputRef}
-          type="checkbox"
-          id="toggle-container_btn"
-          onChange={() => setSelectedTheme(selectedTheme === 'light' ? 'dark' : 'light')}
-        />
+        <input ref={ref} type="checkbox" id="toggle-container_btn" onChange={changeTheme} />
         <label htmlFor="toggle-container_btn" className="toggle-container_label">
           <div className="toggle-container_label-sun">
             <FontAwesomeIcon icon={faSun} fontSize="20" />
@@ -72,14 +22,7 @@ const App = () => {
           </div>
         </label>
       </div>
-      <FloatingNavbar />
-      <Header />
-      <About />
-      <Experience />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      <RouterProvider router={createBrowserRouter(routes)} />
     </BackgroundWithCanvas>
   )
 }
