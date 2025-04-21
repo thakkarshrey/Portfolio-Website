@@ -1,33 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Box from '../box'
 import { faCopyright } from '@fortawesome/free-regular-svg-icons'
-import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { Link } from 'react-router'
 import { sidebarUtils } from '../../../utils/sidebarUtils'
+import { socialMediaLinkUtils } from '../../../utils/socialMediaLinkUtils'
 import './Footer.css'
 
 const Footer = () => {
   const menu = sidebarUtils()
-  const socialMediaLinksData = [
-    {
-      id: 1,
-      link: 'https://linkdn.com',
-      icon: <FontAwesomeIcon icon={faLinkedin} />,
-      label: 'Linkdin'
-    },
-    {
-      id: 2,
-      link: 'https://github.com',
-      icon: <FontAwesomeIcon icon={faGithub} />,
-      label: 'Github'
-    },
-    {
-      id: 3,
-      link: 'https://instagram.com',
-      icon: <FontAwesomeIcon icon={faInstagram} />,
-      label: 'Instagram'
-    }
-  ]
+  const socialMediaMenu = socialMediaLinkUtils()
+
   return (
     <footer id="footer">
       <Box>
@@ -44,7 +26,7 @@ const Footer = () => {
           </ul>
 
           <div className="footer-container___social-media-buttons">
-            {socialMediaLinksData?.map((element) => {
+            {socialMediaMenu?.map((element) => {
               return (
                 <span className="footer-container__cards-icon" key={element.id}>
                   <a href={element.link} target="_blank" rel="noreferrer">

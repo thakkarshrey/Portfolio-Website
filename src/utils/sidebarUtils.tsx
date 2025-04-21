@@ -5,37 +5,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export const sidebarUtils = () => {
   return [
     {
-      id: 1,
+      id: '',
       title: 'Home',
       link: '/',
       icon: <FontAwesomeIcon icon={faHouse} style={{ color: 'var(--white-color)' }} />
     },
     {
-      id: 2,
+      id: 'about',
       title: 'About',
       link: '/about',
       icon: <FontAwesomeIcon icon={faAddressCard} style={{ color: 'var(--white-color)' }} />
     },
     {
-      id: 3,
+      id: 'experience',
       title: 'Experience',
       link: '/experience',
       icon: <FontAwesomeIcon icon={faLaptopFile} style={{ color: 'var(--white-color)' }} />
     },
     {
-      id: 4,
+      id: 'skills',
       title: 'Skills',
       link: '/skills',
       icon: <FontAwesomeIcon icon={faLayerGroup} style={{ color: 'var(--white-color)' }} />
     },
     {
-      id: 5,
+      id: 'projects',
       title: 'Projects',
       link: '/projects',
       icon: <FontAwesomeIcon icon={faCode} style={{ color: 'var(--white-color)' }} />
     },
     {
-      id: 6,
+      id: 'contact',
       title: 'Contact',
       link: '/contact',
       icon: <FontAwesomeIcon icon={faAddressBook} style={{ color: 'var(--white-color)' }} />

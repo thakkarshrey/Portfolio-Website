@@ -50,7 +50,6 @@
   max-height: 485px;
   margin-inline: auto;
   position: relative;
-  /* box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.1); */
   perspective: 1000px;
   transition: transform 1s;
   transform: scale(0.3);
@@ -179,6 +178,7 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   border: 1rem solid var(--card-bg-primary-color);
   z-index: 10;
 }
@@ -187,12 +187,6 @@
   background: url(/assets/images/Shrey_Profile_03.jpg);
   background-position: center;
   background-size: cover;
-}
-
-.about__front-image .about__rotate-button {
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }
 
 .about__back-image {
@@ -223,7 +217,6 @@
 
 .about__back-image:hover .about__back-image-content {
   animation: show-card-animation 1s forwards;
-  /* opacity: 1; */
   transition: all 1s;
 }
 
@@ -301,13 +294,16 @@
     transition: all 0.5s ease;
   }
 
-  .about__front-image-container {
+  .about__info-card-container {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
-  .about__front-image-container::after {
+
+  .about__info-card-container::after {
     content: '';
     width: 100%;
     height: 100%;
@@ -318,7 +314,7 @@
     opacity: 0;
   }
 
-  .about__front-image-container:hover::after {
+  #about .about__profile.flipped .about__info-card-container::after {
     position: absolute;
     content: '';
     transform: translateY(0);
@@ -329,14 +325,16 @@
     left: 0;
     opacity: 1;
     z-index: 10;
+    transition-delay: 1s;
   }
 
-  .about__front-image-container:hover .about__front-image {
-    transform: scale(1.2);
+  #about .about__profile.flipped .about__front-image {
+    transition-delay: 1s;
+    border-width: 0;
   }
 
-  .about__front-image-container .about__info-card .about__info-card-paragraph,
-  .about__front-image-container .about__info-card .about__info-card-button {
+  .about__info-card-container .about__info-card .about__info-card-paragraph,
+  .about__info-card-container .about__info-card .about__info-card-button {
     position: absolute;
     opacity: 0;
     z-index: 11;
@@ -350,18 +348,34 @@
     color: white;
   }
 
-  .about__front-image-container .about__info-card .about__info-card-button {
+  .about__info-card-container .about__info-card .about__info-card-button {
     bottom: 5%;
   }
 
-  .about__front-image-container:hover .about__info-card .about__info-card-paragraph,
-  .about__front-image-container:hover .about__info-card .about__info-card-button {
+  #about
+    .about__profile.flipped
+    .about__front-image
+    .about__info-card-container
+    .about__info-card
+    .about__info-card-paragraph,
+  #about
+    .about__profile.flipped
+    .about__front-image
+    .about__info-card-container
+    .about__info-card
+    .about__info-card-button {
     transform: translateY(0);
     opacity: 1;
+    transition-delay: 1s;
   }
 
-  .about__front-image-container:hover .about__info-card .about__info-card-button {
-    transition-delay: 0.25s;
+  #about
+    .about__profile.flipped
+    .about__front-image
+    .about__front-image-container
+    .about__info-card
+    .about__info-card-button {
+    transition-delay: 1.25s;
   }
 
   .about__back-image {
@@ -375,7 +389,6 @@
 
   #about.show-animation .about__profile.flipped {
     transform: rotateY(0deg);
-    transition-delay: 0s;
   }
 
   .about__cards {

@@ -3,9 +3,10 @@ import Box from '../../common/box'
 import Button from '../../common/button'
 import { faBuildingColumns, faMedal } from '@fortawesome/free-solid-svg-icons'
 import { useMediaMatch } from '../../../hooks/useMediaMatch'
-import React, { SetStateAction, useEffect, useState } from 'react'
+import React, { SetStateAction, useCallback, useEffect, useState } from 'react'
 import { useAnimate } from '../../../hooks/useAnimate'
 import GlowingButton from '../../common/glowing-button'
+import useThemeChange from '../../../hooks/useThemeChange'
 import './About.css'
 
 type ExperienceAndEducationCardProps = {
@@ -18,13 +19,23 @@ type ExperienceAndEducationCardProps = {
 
 const About = () => {
   const animationClass = useAnimate(100)
+  const { selectedTheme } = useThemeChange()
+  const isMobile = useMediaMatch('(max-width:1024px)')
+  const [isFlipped, setIsFlipped] = useState(false)
+  const [initialLoad, setInitialLoad] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setInitialLoad(false)
+    }, 1000)
+  }, [])
+
   const experienceData = [
     {
       id: 1,
       icon: <FontAwesomeIcon icon={faMedal} />,
       title: 'Experience',
       paragraph_01: '4 years',
-      // paragraph_02: 'Frontend Development'
       paragraph_02: 'Software Engineer'
     },
     {
@@ -36,15 +47,16 @@ const About = () => {
     }
   ]
 
-  const isDesktop = useMediaMatch('(max-width:1024px)')
-  const [isFlipped, setIsFlipped] = useState(false)
-  const [initialLoad, setInitialLoad] = useState(true)
-
-  useEffect(() => {
-    setTimeout(() => {
-      setInitialLoad(false)
-    }, 1000)
+  /* Function definition to download the resume */
+  const downloadResume = useCallback(() => {
+    const link = document.createElement('a')
+    link.href = '/Shrey_Thakkar.pdf'
+    link.download = 'Shrey_Thakkar.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }, [])
+  /* Function definition to download the resume */
 
   return (
     <section id="about" className={`section ${animationClass}`}>
@@ -54,15 +66,20 @@ const About = () => {
             <p className="about__get-to-know-title">Get to know</p>
             <h2 className="about__about-me-title">About me</h2>
           </div>
-          {isDesktop ? (
+          {isMobile ? (
             <AboutCardsSmallAndMediumDevices
               experienceData={experienceData}
               isFlipped={isFlipped}
               setIsFlipped={setIsFlipped}
               initialLoad={initialLoad}
+              selectedTheme={selectedTheme}
+              downloadResume={downloadResume}
             />
           ) : (
-            <AboutCardsForDesktopDevice experienceData={experienceData} />
+            <AboutCardsForDesktopDevice
+              experienceData={experienceData}
+              downloadResume={downloadResume}
+            />
           )}
         </div>
       </Box>
@@ -92,6 +109,8 @@ type AboutCardsSmallAndMediumDevicesProps = {
   isFlipped: boolean
   setIsFlipped: React.Dispatch<SetStateAction<boolean>>
   initialLoad: boolean
+  selectedTheme: string
+  downloadResume: () => void
 }
 
 const AboutCardsSmallAndMediumDevices = React.memo(
@@ -99,34 +118,38 @@ const AboutCardsSmallAndMediumDevices = React.memo(
     experienceData,
     setIsFlipped,
     isFlipped,
-    initialLoad
+    initialLoad,
+    selectedTheme,
+    downloadResume
   }: AboutCardsSmallAndMediumDevicesProps) => {
     return (
       <div className="about__card">
         <div
           className={`about__profile ${isFlipped ? 'flipped' : ''} ${!initialLoad && 'reset-delay'}`}
         >
-          <div className="about__front-image-container">
-            <div className="about__front-image"></div>
-            {isFlipped && (
-              <div className="about__info-card">
-                <div className="about__info-card-paragraph">
-                  <p>
-                    Hi, I’m a Software Engineer by profession and Electrical Engineer by Education.
-                  </p>
-                  <p>I have over 4 years of experience as a Software Engineer.</p>
+          <div className="about__front-image">
+            <div className="about__info-card-container">
+              {
+                <div className="about__info-card">
+                  <div className="about__info-card-paragraph">
+                    <p>
+                      Hi, I’m a Software Engineer by profession and Electrical Engineer by
+                      Education.
+                    </p>
+                    <p>I have over 4 years of experience as a Software Engineer.</p>
+                  </div>
+                  <div className="about__info-card-button">
+                    <GlowingButton
+                      onClick={() => {
+                        setIsFlipped((prevValue) => !prevValue)
+                      }}
+                    >
+                      Read more
+                    </GlowingButton>
+                  </div>
                 </div>
-                <div className="about__info-card-button">
-                  <GlowingButton
-                    onClick={() => {
-                      setIsFlipped((prevValue) => !prevValue)
-                    }}
-                  >
-                    Read more
-                  </GlowingButton>
-                </div>
-              </div>
-            )}
+              }
+            </div>
           </div>
           <div className="about__back-image">
             <div className="about__content">
@@ -145,15 +168,17 @@ const AboutCardsSmallAndMediumDevices = React.memo(
                 football—balancing my coding life with fitness and fun.
               </p>
               <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-                <Button variant="primary">Download CV</Button>
-                <Button
-                  variant="primary"
+                <Button variant="primary" onClick={downloadResume}>
+                  Download CV
+                </Button>
+                <GlowingButton
+                  color={selectedTheme === 'light' ? 'var(--primary-color)' : ''}
                   onClick={() => {
                     setIsFlipped((prevValue) => !prevValue)
                   }}
                 >
                   Go back
-                </Button>
+                </GlowingButton>
               </div>
             </div>
           </div>
@@ -164,7 +189,13 @@ const AboutCardsSmallAndMediumDevices = React.memo(
 )
 
 const AboutCardsForDesktopDevice = React.memo(
-  ({ experienceData }: { experienceData: ExperienceAndEducationCardProps[] }) => {
+  ({
+    experienceData,
+    downloadResume
+  }: {
+    experienceData: ExperienceAndEducationCardProps[]
+    downloadResume: () => void
+  }) => {
     return (
       <div className="about__card">
         <div className="about__profile">
@@ -191,9 +222,11 @@ const AboutCardsForDesktopDevice = React.memo(
             Outside work, I stay active by hitting the gym, playing, or watching football—balancing
             my coding life with fitness and fun.
           </p>
-          <a href="#contact">
-            <Button variant="primary">Download CV</Button>
-          </a>
+          <div style={{ textAlign: 'center' }}>
+            <Button variant="primary" onClick={downloadResume}>
+              Download CV
+            </Button>
+          </div>
         </div>
       </div>
     )
