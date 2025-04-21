@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="footer-container">
           <h2>Shrey Thakkar</h2>
           <ul className="footer-navbar__menu">
-            {menu?.map((element: { id: number; link: string; title: string }) => {
+            {menu?.map((element: { id: string; link: string; title: string }) => {
               return (
                 <li key={element.id} className="footer-navbar__list-item">
                   <Link to={element.link}>{element.title}</Link>
